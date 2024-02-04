@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "The Animal Dictionary, the Bestiary, and the Chronicle of Shadows contain information that can help you."
+    }
+  }

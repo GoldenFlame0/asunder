@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "When hovering over an item, press 'U' to see what recipies the item can be used in. You can change the key in settings."
+    }
+  }

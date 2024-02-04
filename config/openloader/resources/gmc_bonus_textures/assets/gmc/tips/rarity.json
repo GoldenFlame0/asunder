@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "The colour of a block's or item's name indicates its scareness, or if it has one, its Apotheosis Affix."
+    }
+  }

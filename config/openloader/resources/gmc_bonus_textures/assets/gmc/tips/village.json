@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Be on the lookout for villages. The villagers are more than happy to trade with you, and they are always built around an ancient Waystone."
+    }
+  }

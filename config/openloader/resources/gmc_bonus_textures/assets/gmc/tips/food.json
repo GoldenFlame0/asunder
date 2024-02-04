@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Trying different foods will increase your hitpoints. Maintaining a diverse diet can increase them further, and give you potion effects."
+    }
+  }

@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Corundum clusters can redirect beacon beams. Corundum blocks can be crafted into Runes, which change the colour of the enchantment glint."
+    }
+  }

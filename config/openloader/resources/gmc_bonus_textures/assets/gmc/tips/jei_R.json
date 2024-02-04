@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "When hovering over an item, press 'R' to see how to make that item. You can change the key in settings."
+    }
+  }
