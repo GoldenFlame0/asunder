@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Found a bug? An inconsistency? Have a problem? Want to request a feature? Make a ticket at https://github.com/GoldenFlame0/asunder/issues"
+    }
+  }
