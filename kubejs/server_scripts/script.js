@@ -426,6 +426,26 @@ onEvent('recipes', event => {
 	makePixieHovel('iceandfire:pixie_house_mushroom_red', '#enhanced_mushrooms:red_mushroom_stems')
 	//#endregion
 
+	//#region dirt integration
+
+	event.recipes.createSplashing(
+		'minecraft:clay_ball',
+		[
+			'immersive_weathering:silt'
+		]
+	)
+	event.recipes.createMilling(
+		'infernalexp:silt',
+		[
+			'#chipped:basalt'
+		]
+	)
+
+	event.smelting('minecraft:dirt', 'immersive_weathering:permafrost')
+	event.smoking('minecraft:dirt', 'immersive_weathering:permafrost')
+	event.campfireCooking('minecraft:dirt', 'immersive_weathering:permafrost')
+
+	//#endregion
 })
 
 onEvent('block.tags', event => {
