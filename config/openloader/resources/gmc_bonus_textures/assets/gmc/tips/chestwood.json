@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Some types of wood are not suitable for making chests. Regardless, barrels can be made out of any type of wood."
+    }
+  }
