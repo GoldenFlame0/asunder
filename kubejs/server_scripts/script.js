@@ -446,6 +446,36 @@ onEvent('recipes', event => {
 	event.campfireCooking('minecraft:dirt', 'immersive_weathering:permafrost')
 
 	//#endregion
+
+	event.remove({output: 'create_dd:spectral_ruby'})
+	event.recipes.createMixing(
+		'create_dd:spectral_ruby',
+		[
+			'#quark:corundum', '#quark:corundum', '#quark:corundum',
+			'#quark:corundum', '#forge:dusts/glowstone', '#quark:corundum',
+			'#quark:corundum', '#quark:corundum', '#quark:corundum'
+		]
+	).heated()
+
+	let corundums = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'white', 'black']
+	corundums.forEach((colour) => 
+	{
+		event.recipes.createCrushing
+		(
+			`4x quark:${colour}_corundum_cluster`, 
+			[
+				`quark:${colour}_corundum`
+			]
+		)
+
+		event.recipes.createCompacting
+		(
+			`quark:${colour}_corundum`,
+			[
+				`4x quark:${colour}_corundum_cluster`
+			]
+		)
+	})
 })
 
 onEvent('block.tags', event => {
