@@ -8,5 +8,17 @@
 	"minecraft:zombified_piglin-10-40-0",
 	"minecraft:husk-25-50-0",
 	"minecraft:zoglin{Passengers:[{id:drowned,HandItems:[{id:trident,Count:1}]}]}-3-50-0",
-	"minecraft:zombie_horse{Passengers:[{id:drowned,HandItems:[{id:trident,Count:1}]}]}-3-50-0"
+	"minecraft:zombie_horse{Passengers:[{id:drowned,HandItems:[{id:trident,Count:1}]}]}-3-50-0",
+	{
+		"entity": "rottencreatures:swampy",
+		"weight": 10,
+		"first_day": 30,
+		"last_day": 0 
+	},
+	{
+		"entity": "rottencreatures:frostbitten",
+		"weight": 10,
+		"first_day": 30,
+		"last_day": 0 
+	}
 ]

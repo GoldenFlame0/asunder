@@ -31,6 +31,8 @@
 	hordeMultiplayerScaling = 0.8
 	#Do the daylight cycle (and active horde events get paused while there are no players online.).
 	pauseEventServer = true
+	#How many ticks does the horde pathing ai take before recalculating? (Increase this if you are having server slowdown during horde events.)
+	hordePathingInterval = 10
 
 [Infection]
 	#Set to false to completely disable mob infection and anything related to it.

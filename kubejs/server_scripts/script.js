@@ -476,6 +476,23 @@ onEvent('recipes', event => {
 			]
 		)
 	})
+
+	event.remove({output: 'thermal:gunpowder_block'})
+
+	event.remove({id: 'rottencreatures:tnt_barrel'})
+	event.shaped(
+		'rottencreatures:tnt_barrel',
+		[
+			'PSP',
+			'PTP',
+			'PSP'
+		], {
+			P: '#minecraft:planks',
+			S: '#minecraft:wooden_slabs',
+			T: 'minecraft:tnt'
+		}
+	)
+	event.shapeless('rottencreatures:tnt_barrel', ['#forge:barrels', 'minecraft:tnt'])
 })
 
 onEvent('block.tags', event => {
