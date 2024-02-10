@@ -271,6 +271,46 @@ onEvent('recipes', event => {
 		]
 	)
 
+	event.remove({id: 'explorerscompass:explorers_compass'})
+	event.remove({id: 'naturescompass:natures_compass'})
+	event.shaped(
+		'thermal:invar_gear',
+		[
+			'NIN',
+			'IRI',
+			'NIN'
+		], {
+			I: '#forge:ingots/invar',
+			N: '#forge:nuggets/invar',
+			R: '#forge:dusts/redstone'
+		}
+	)
+
+	event.shapeless(
+		'explorerscompass:explorerscompass',
+		[
+			'minecraft:spawner',
+			'minecraft:nether_bricks',
+			'minecraft:ender_eye',
+			'#forge:gears/invar',
+			'minecraft:compass',
+			'#forge:gears/invar',
+			'minecraft:sea_lantern',
+			'minecraft:gilded_blackstone',
+			'minecraft:end_rod'
+		]
+	)
+	event.shapeless(
+		'naturescompass:naturescompass',
+		[
+			'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass',
+			'#forge:gears/invar',
+			'minecraft:compass',
+			'#forge:gears/invar',
+			'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass'
+		]
+	)
+
 	event.remove({output: 'createaddition:capacitor'})
 	event.shapeless('createaddition:capacitor', [])
 
