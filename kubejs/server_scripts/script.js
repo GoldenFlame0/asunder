@@ -7,6 +7,8 @@ settings.logErroringRecipes = true
 
 console.info('Hello, World! (You will see this line every time server resources reload)')
 
+let wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
+
 onEvent('recipes', event => {
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
@@ -533,6 +535,39 @@ onEvent('recipes', event => {
 		}
 	)
 	event.shapeless('rottencreatures:tnt_barrel', ['#forge:barrels', 'minecraft:tnt'])
+
+	event.remove({output: 'upgrade_aquatic:bedroll'})
+	wool_colours.forEach((colour => {
+		event.remove({output: `valhelsia_structures:${colour}_sleeping_bag`})
+		event.shaped(
+			`valhelsia_structures:${colour}_sleeping_bag`,
+			[
+				'WWW',
+				'LLL',
+				'N N'
+			],
+			{
+				W: `minecraft:${colour}_wool`,
+				L: '#forge:leather',
+				N: '#forge:nuggets/iron'
+			}
+		)
+		event.shapeless(
+			`valhelsia_structures:${colour}_sleeping_bag`,
+			[`upgrade_aquatic:${colour}_bedroll`]
+		)
+		event.shapeless(
+			`upgrade_aquatic:${colour}_bedroll`,
+			[`valhelsia_structures:${colour}_sleeping_bag`]
+		)
+		event.shapeless(
+			`valhelsia_structures:${colour}_sleeping_bag`,
+			[
+				'#valhelsia_structures:sleeping_bags',
+				`#forge:dyes/${colour}`
+			]
+		)
+	}))
 })
 
 onEvent('block.tags', event => {
