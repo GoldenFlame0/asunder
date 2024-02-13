@@ -36,7 +36,7 @@ ao:2
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:true
-resourcePacks:["vanilla","mod_resources","Immersive Weathering Generated Pack","Supplementaries Generated Pack","quark:emote_resources","file/Infernal Resources.zip","railways:green_signals","immersive_weathering:visual_waxed_iron_items","immersive_weathering:biome_tinted_mossy_blocks","immersive_weathering:better_brick_items","immersive_weathering:better_brick_blocks","create:legacy_copper","resources/gmc_bonus_textures","file/VanillaTweaks_r298003.zip","file/Icon Xaero\u0027s 1.13.zip","file/Extra Xaero\u0027s Minimap Icons - 1.18.2 - 1.0.zip","file/Creative Music.zip"]
+resourcePacks:["vanilla","mod_resources","Immersive Weathering Generated Pack","Supplementaries Generated Pack","quark:emote_resources","file/Infernal Resources.zip","railways:green_signals","immersive_weathering:visual_waxed_iron_items","immersive_weathering:biome_tinted_mossy_blocks","immersive_weathering:better_brick_items","immersive_weathering:better_brick_blocks","create:legacy_copper","file/VanillaTweaks_r298003.zip","file/Icon Xaero\u0027s 1.13.zip","file/Extra Xaero\u0027s Minimap Icons - 1.18.2 - 1.0.zip","file/Creative Music.zip","resources/gmc_bonus_textures"]
 incompatibleResourcePacks:["quark:emote_resources","file/Infernal Resources.zip","file/Icon Xaero\u0027s 1.13.zip"]
 lastServer:192.168.86.111:44067
 lang:en_us

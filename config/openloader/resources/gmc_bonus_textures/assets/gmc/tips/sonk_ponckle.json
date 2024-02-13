@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Pixies in captivity are drawn to gemstones."
+    }
+  }
