@@ -6,6 +6,6 @@
       "color": "red"
     },
     "tip": {
-      "text": "Gems and runes can be applied using anvils."
+      "text": "Runes and Enchanted Books can be applied using an Anvil. Gems and Netherite Ingots can be applied using a Smithing Table."
     }
-  }
+}
