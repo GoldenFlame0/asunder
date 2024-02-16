@@ -539,6 +539,7 @@ onEvent('recipes', event => {
 	event.remove({output: 'upgrade_aquatic:bedroll'})
 	wool_colours.forEach((colour => {
 		event.remove({output: `valhelsia_structures:${colour}_sleeping_bag`})
+		event.remove({id: `minecraft:${colour}_bed`})
 		event.shaped(
 			`valhelsia_structures:${colour}_sleeping_bag`,
 			[
@@ -566,6 +567,18 @@ onEvent('recipes', event => {
 				'#valhelsia_structures:sleeping_bags',
 				`#forge:dyes/${colour}`
 			]
+		)
+		event.shaped(
+			`minecraft:${colour}_bed`,
+			[
+				' S ',
+				'FOF'
+			],
+			{
+				S: `valhelsia_structures:${colour}_sleeping_bag`,
+				F: '#minecraft:fences',
+				O: 'minecraft:crying_obsidian'
+			}
 		)
 	}))
 })
