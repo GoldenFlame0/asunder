@@ -581,6 +581,23 @@ onEvent('recipes', event => {
 			}
 		)
 	}))
+
+	// Ender Anchor Fixes
+	event.remove({output: 'unusualend:ender_respawn_altar'})
+	event.remove({output: 'end_respawn_anchor:end_respawn_anchor'})
+	event.shaped(
+		'end_respawn_anchor:end_respawn_anchor',
+		[
+			'SOS',
+			'III',
+			'SOS'
+		],
+		{
+			S: '#forge:end_stones',
+			O: 'minecraft:crying_obsidian',
+			I: 'minecraft:ender_eye'
+		}
+	)
 })
 
 onEvent('block.tags', event => {

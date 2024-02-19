@@ -1,0 +1,5 @@
+
+["Config for LavaWalker Enchantment Mod"]
+	#This defines whether it explodes or not in dimensions other than the End.
+	isExplode = true
+
