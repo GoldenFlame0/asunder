@@ -646,3 +646,17 @@ onEvent('item.tags', event => {
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_3')
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_4')
 })
+
+onEvent('entity.loot_tables', event => {
+	event.modifyEntity('rottencreatures:frostbitten', table => {
+		table.addPool(pool => {
+			pool.addItem('iceandfire:dread_key').randomChance(0.01)
+		})
+	})
+
+	event.modifyEntity('minecraft:zombie', table => {
+		table.addPool(pool => {
+			pool.addItem('minecraft:feather').count(2)
+		})
+	})
+})
