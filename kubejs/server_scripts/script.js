@@ -656,7 +656,7 @@ onEvent('entity.loot_tables', event => {
 
 	event.modifyEntity('minecraft:zombie', table => {
 		table.addPool(pool => {
-			pool.addItem('minecraft:feather').count(2)
+			pool.addItem('minecraft:feather', 1, [0, 2])
 		})
 	})
 })
