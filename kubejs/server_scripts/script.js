@@ -598,6 +598,73 @@ onEvent('recipes', event => {
 			I: 'minecraft:ender_eye'
 		}
 	)
+
+	// Storage progresion
+	event.replaceInput(
+		{output: 'quark:crate'},
+		'#forge:ingots/iron',
+		'#forge:plates/iron'
+	)
+
+	event.replaceInput(
+		{output: 'thermal:satchel'},
+		'#forge:ingots/tin',
+		'#forge:plates/tin'
+	)
+
+	event.remove({output:'quark:backpack'})
+	event.shaped(
+		'quark:backpack',
+		[
+			'LTL',
+			'WRW',
+			'LWL'
+		],
+		{
+			L: '#forge:leather',
+			R: 'quark:ravager_hide',
+			W: '#thermal:rockwool',
+			T: '#forge:plates/tin'
+		}
+	)
+	event.remove({id: 'minecraft:shulker_box'})
+	event.shapeless('minecraft:shulker_box', ['minecraft:shulker_shell', '#forge:plates/tin', 'minecraft:shulker_shell'])
+
+	event.remove({id: 'create:crafting/curiosities/brown_toolbox'})
+	event.shaped('create:brown_toolbox',
+		[
+			'CBG',
+			'TLG'
+		],
+		{
+			L: '#forge:leather',
+			C: 'create:cogwheel',
+			T: '#forge:plates/tin',
+			G: '#forge:plates/gold',
+			B: '#balm:wooden_chests'
+		}
+	)
+	
+	event.replaceInput(
+		{output: 'refinedstorage:raw_advanced_processor'},
+		'minecraft:diamond',
+		'#forge:ingots/enderium'
+	)
+	event.remove({id: 'refinedstorage:controller'})
+	event.recipes.createMechanicalCrafting('refinedstorage:controller',
+	[
+		'RRWRR',
+		'RPMPR',
+		'WMCMW',
+		'RPMPR',
+		'RRWRR'
+	], {
+		C: 'refinedstorage:machine_casing',
+		R: '#forge:ingots/industrial_iron',
+		P: 'refinedstorage:advanced_processor',
+		M: 'quark:myalite_crystal',
+		W: 'refinedstorage:cable'
+	})
 })
 
 onEvent('block.tags', event => {
