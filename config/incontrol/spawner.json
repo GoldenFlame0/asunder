@@ -1,0 +1,10 @@
+[
+    {
+        "mob": ["minecraft:phantom"],
+        "persecond": 1,
+        "attempts": 1,
+        "conditions": {
+            "dimension": "minecraft:the_end"
+        }
+    }
+]
