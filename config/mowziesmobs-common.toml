@@ -12,6 +12,9 @@
 		#Cost in minutes of using the solar beam ability.
 		#Range: > 0
 		solar_beam_cost = 5
+		#Cost in minutes of using the supernova ability.
+		#Range: > 0
+		supernova_cost = 60
 
 	[tools_and_abilities.wrought_helm]
 		#Set to true for the Wrought Helm to have limited durability.
