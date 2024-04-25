@@ -28,3 +28,6 @@ dynmap/*
 patchouli_data.json
 
 profile.json
+
+/debug/
+/.mixin.out/

@@ -38,4 +38,12 @@
 	withered_fractions = [0.25, 0.5, 0.75]
 	left_order = ["health", "armor", "absorption", "lavacharm", "lavacharm2"]
 	right_order = ["blood", "health_mount", "food", "feathers", "armor_toughness", "thirst", "air", "flighttiara", "decay"]
+	show_thirst_numbers = true
+	show_hydration_bar = true
+	show_held_drink_overlay = true
+	show_thirst_exhaustion_overlay = true
+	thirstr_bar_color = "#1C5EE4"
+	thirst_bar_debuff_color = "#5A891C"
+	hydration_bar_color = "#00A3E2"
+	hydration_bar_debuff_color = "#85CF25"
 
