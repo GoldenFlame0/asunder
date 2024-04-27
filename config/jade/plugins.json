@@ -75,5 +75,8 @@
   },
   "waystones": {
     "waystone": true
+  },
+  "gravestone": {
+    "grave": true
   }
 }
