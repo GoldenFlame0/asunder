@@ -5,6 +5,7 @@
 	#Modify Create: Dreams n' Desire's impact on your terrain
 	[worldgen.v2]
 		#.
+		#.
 		#Prevents all worldgen added by Create: Dreams n' Desire's from taking effect
 		disableWorldGen = false
 
@@ -133,4 +134,22 @@
 			#.
 			#Range: > -2147483648
 			maxHeight = 200
+
+		[worldgen.v2.dolomite_blob]
+			#.
+			#Range: > 0
+			clusterSize = 24
+			#.
+			#Amount of clusters generated per Chunk.
+			#  >1 to spawn multiple.
+			#  <1 to make it a chance.
+			#  0 to disable.
+			#Range: 0.0 ~ 512.0
+			frequency = 5.0
+			#.
+			#Range: > -2147483648
+			minHeight = -64
+			#.
+			#Range: > -2147483648
+			maxHeight = 24
 

@@ -8,12 +8,6 @@
 	#The maximum duration of effects transformed by Snow Top Yellow Tea / Snow Top Black Tea
 	#Range: > 1
 	snowTopDrinkEffectMaxDuration = 32766
-	#If the drinks from Farmer's Respite can be drunk even when the player is full
-	canFarmersRespiteDrinksAlwaysEat = true
 	#If the foods made from tea in Farmer's Respite should use Respiteful's effects instead
 	replaceFarmersRespiteFoodEffects = true
-	#If the Caffeinated effect should be using the new attribute as in 1.19+
-	#The new attribute would be + 10% Speed & + 20% Attack Speed per level
-	#@ApiStatus.ScheduledForRemoval: this config will be removed in 1.19+ since it would be meaningless by then
-	replaceCaffeinatedEffect = true
 

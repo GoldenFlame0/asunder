@@ -1,15 +1,10 @@
 // priority: 0
 
-settings.logAddedRecipes = true
-settings.logRemovedRecipes = true
-settings.logSkippedRecipes = false
-settings.logErroringRecipes = true
-
 console.info('Hello, World! (You will see this line every time server resources reload)')
 
 let wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
 
-onEvent('recipes', event => {
+ServerEvents.recipes(event => {
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
 	event.smoking('minecraft:leather', 'minecraft:rotten_flesh')
@@ -667,7 +662,7 @@ onEvent('recipes', event => {
 	})
 })
 
-onEvent('block.tags', event => {
+ServerEvents.tags('block', event => {
 	event.get('blockrunner:quick_blocks').add('infernalexp:crimson_nylium_path')
 	event.get('blockrunner:quick_blocks').add('infernalexp:warped_nylium_path')
 	event.get('blockrunner:quick_blocks').add('infernalexp:soul_soil_path')
@@ -680,7 +675,7 @@ onEvent('block.tags', event => {
 	event.get('blockrunner:slightly_quick_blocks').add('iceandfire:crackled_dirt_path')
 })
 
-onEvent('item.tags', event => {
+ServerEvents.tags('item', event => {
 	// Get the #forge:cobblestone tag collection and add Diamond Ore to it
 	// event.get('forge:cobblestone').add('minecraft:diamond_ore')
 
@@ -714,7 +709,7 @@ onEvent('item.tags', event => {
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_4')
 })
 
-onEvent('entity.loot_tables', event => {
+ServerEvents.entityLootTables(event => {
 	event.modifyEntity('rottencreatures:frostbitten', table => {
 		table.addPool(pool => {
 			pool.addItem('iceandfire:dread_key').randomChance(0.01)

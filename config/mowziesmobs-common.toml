@@ -2,6 +2,9 @@
 [tools_and_abilities]
 	#Range: 0.0 ~ 1.7976931348623157E308
 	geomancy_attack_multiplier = 1.0
+	#Cost in minutes of using the supernova ability.
+	#Range: > 0
+	supernova_cost = 60
 
 	[tools_and_abilities.suns_blessing]
 		#Duration in minutes of the Sun's Blessing effect.
@@ -12,9 +15,6 @@
 		#Cost in minutes of using the solar beam ability.
 		#Range: > 0
 		solar_beam_cost = 5
-		#Cost in minutes of using the supernova ability.
-		#Range: > 0
-		supernova_cost = 60
 
 	[tools_and_abilities.wrought_helm]
 		#Set to true for the Wrought Helm to have limited durability.
@@ -63,26 +63,6 @@
 		#Range: > 1
 		durability = 600
 
-	[tools_and_abilities.barakoa_mask]
-
-		[tools_and_abilities.barakoa_mask.armor_config]
-			#See official Minecraft Wiki for an explanation of how armor damage reduction works.
-			#Range: > 0
-			damage_reduction = 1
-			#See official Minecraft Wiki for an explanation of how armor toughness works.
-			#Range: 0.0 ~ 1.7976931348623157E308
-			toughness = 0.0
-
-	[tools_and_abilities.barakoa_spear]
-
-		[tools_and_abilities.barakoa_spear.tool_config]
-			#Tool attack damage
-			#Range: 0.0 ~ 1.7976931348623157E308
-			attack_damage = 5.0
-			#Tool attack speed
-			#Range: 0.0 ~ 1.7976931348623157E308
-			attack_speed = 1.600000023841858
-
 	[tools_and_abilities.naga_fang_dagger]
 		#Duration in ticks of the poison effect (20 ticks = 1 second).
 		#Range: > 0
@@ -126,6 +106,26 @@
 			#Range: 0.0 ~ 1.7976931348623157E308
 			attack_speed = 1.2000000476837158
 
+	[tools_and_abilities.umvuthana_mask]
+
+		[tools_and_abilities.umvuthana_mask.armor_config]
+			#See official Minecraft Wiki for an explanation of how armor damage reduction works.
+			#Range: > 0
+			damage_reduction = 1
+			#See official Minecraft Wiki for an explanation of how armor toughness works.
+			#Range: 0.0 ~ 1.7976931348623157E308
+			toughness = 0.0
+
+	[tools_and_abilities.spear]
+
+		[tools_and_abilities.spear.tool_config]
+			#Tool attack damage
+			#Range: 0.0 ~ 1.7976931348623157E308
+			attack_damage = 5.0
+			#Tool attack speed
+			#Range: 0.0 ~ 1.7976931348623157E308
+			attack_speed = 1.600000023841858
+
 [mobs]
 
 	[mobs.frostmaw]
@@ -139,17 +139,18 @@
 		reset_health_when_respawn = true
 
 		[mobs.frostmaw.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["SNOWY,!OCEAN,!RIVER,!BEACH,!FOREST"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["forge:is_snowy,!minecraft:is_ocean,!minecraft:is_river,!minecraft:is_beach,!minecraft:is_forest,!minecraft:is_taiga"]
 
 		#Controls for spawning structure/mob with world generation
 		[mobs.frostmaw.generation_config]
@@ -193,17 +194,18 @@
 
 		#Generation controls for Umvuthana Groves
 		[mobs.umvuthi.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["SAVANNA"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_savanna"]
 
 		#Controls for spawning structure/mob with world generation
 		[mobs.umvuthi.generation_config]
@@ -241,17 +243,18 @@
 		reset_health_when_respawn = true
 
 		[mobs.ferrous_wroughtnaut.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["!OCEAN"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["!minecraft:is_ocean"]
 
 		#Controls for spawning structure/mob with world generation
 		[mobs.ferrous_wroughtnaut.generation_config]
@@ -285,17 +288,18 @@
 		heals_out_of_battle = true
 
 		[mobs.sculptor.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["MOUNTAIN"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_mountain"]
 
 		#Controls for spawning structure/mob with world generation
 		[mobs.sculptor.generation_config]
@@ -327,17 +331,18 @@
 	[mobs.grottol]
 
 		[mobs.grottol.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["!MUSHROOM"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["!forge:is_mushroom"]
 
 		#Controls for vanilla-style mob spawning
 		[mobs.grottol.spawn_config]
@@ -385,17 +390,18 @@
 	[mobs.lantern]
 
 		[mobs.lantern.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["FOREST,MAGICAL,!SNOWY"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = ["minecraft:dark_forest"]
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_forest,mowziesmobs:is_magical,!forge:is_snowy"]
 
 		#Controls for vanilla-style mob spawning
 		[mobs.lantern.spawn_config]
@@ -446,17 +452,18 @@
 		#Group size controls how many raptors spawn, not followers
 		#See Umvuthi config for grove structure controls
 		[mobs.umvuthana.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["SAVANNA"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_savanna"]
 
 		#Controls for vanilla-style mob spawning
 		[mobs.umvuthana.spawn_config]
@@ -504,17 +511,18 @@
 	[mobs.naga]
 
 		[mobs.naga.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["BEACH,MOUNTAIN", "BEACH,HILLS"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = ["minecraft:stony_shore"]
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_beach,minecraft:is_mountain", "minecraft:is_beach,minecraft:is_hill"]
 
 		#Controls for vanilla-style mob spawning
 		[mobs.naga.spawn_config]
@@ -562,17 +570,18 @@
 	[mobs.foliaath]
 
 		[mobs.foliaath.biome_config]
-			#Each entry is a combination of allowed biome types.
-			#Separate types with commas to require biomes to have all types in an entry
-			#Put a '!' before a biome type to mean NOT that type
-			#A blank entry means all biomes. No entries means no biomes.
-			#For example, 'FOREST,MAGICAL,!SNOWY' would mean all biomes that are magical forests but not snowy
-			#'!MOUNTAIN' would mean all non-mountain biomes
-			biome_type = ["JUNGLE"]
-			#Allow spawns in these biomes regardless of the biome type settings
+			#Allow spawns in these biomes regardless of the biome tag settings
 			biome_whitelist = []
-			#Prevent spawns in these biomes regardless of the biome type settings
+			#Prevent spawns in these biomes regardless of the biome tag settings
 			biome_blacklist = []
+			#Mowzie's Mobs bosses cannot generate in modded or non-overworld biomes unless the biome is added to the 'has_structure/has_mowzie_structure' tag via a datapack!
+			#Each entry is a combination of allowed biome tags or biome names.
+			#Separate types with commas to require biomes to have all tags in an entry
+			#Put a '!' before a biome tag to mean NOT that tag
+			#A blank entry means all biomes. No entries means no biomes.
+			#For example, 'minecraft:is_forest,forge:is_spooky,!forge:is_snowy' would mean all biomes that are spooky forests but not snowy forests
+			#'!minecraft:is_mountain' would mean all non-mountain biomes
+			biome_tags = ["minecraft:is_jungle"]
 
 		#Controls for vanilla-style mob spawning
 		[mobs.foliaath.spawn_config]

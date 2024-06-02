@@ -28,3 +28,8 @@ dynmap/*
 patchouli_data.json
 
 profile.json
+
+/debug/
+/.mixin.out/
+
+/Distant_Horizons_server_data
