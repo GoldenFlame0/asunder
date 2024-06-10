@@ -660,6 +660,112 @@ ServerEvents.recipes(event => {
 		M: 'quark:myalite_crystal',
 		W: 'refinedstorage:cable'
 	})
+
+	// #region Spud's Revised Recipies
+	// https://modrinth.com/datapack/spuds-revised-recipes
+	event.remove({id: 'minecraft:lodestone'})
+	event.shaped('minecraft:lodestone',
+		[
+			' S ',
+			'SCS',
+			' S '
+		],
+		{
+			S: 'minecraft:chiseled_stone_bricks',
+			C: '#forge:storage_blocks/copper'
+		}
+	)
+	event.remove({id: 'apotheosis:sigil_of_socketing'})
+	event.shaped('apotheosis:sigil_of_socketing',
+		[
+			'DBD',
+			'DND',
+			'DAD'
+		],
+		{
+			D: 'apotheosis:gem_dust',
+			B: 'minecraft:dragon_breath',
+			N: '#forge:ingots/netherite',
+			A: '#forge:gems/amethyst'
+		}
+	)
+
+	event.remove({id: 'minecraft:rail'})
+	event.remove({id: 'minecraft:powered_rail'})
+	event.remove({id: 'minecraft:detector_rail'})
+	event.remove({id: 'minecraft:activator_rail'})
+	event.shaped('16x minecraft:rail',
+		[
+			'I I',
+			'ISI',
+			'I I'
+		],
+		{
+			I: '#forge:nuggets/iron',
+			S: '#forge:rods/wooden'
+		}
+	)
+	event.shaped('48x minecraft:rail',
+		[
+			' S ',
+			'ISI',
+			' S '
+		],
+		{
+			I: '#forge:ingots/iron',
+			S: '#forge:rods/wooden'
+		}
+	)
+	event.shapeless('minecraft:powered_rail',
+		[
+			'minecraft:rail',
+			'#forge:nuggets/gold',
+			'#forge:dusts/redstone'
+		]
+	)
+	event.shapeless('minecraft:detector_rail',
+		[
+			'minecraft:rail',
+			'minecraft:stone_pressure_plate',
+			'#forge:dusts/redstone'
+		]
+	)
+	event.shapeless('minecraft:activator_rail',
+		[
+			'minecraft:rail',
+			'minecraft:redstone_torch'
+		]
+	)
+	event.shapeless('minecraft:activator_rail',
+		[
+			'minecraft:rail',
+			'#forge:rods/wooden',
+			'#forge:dusts/redstone'
+		]
+	)
+
+	event.remove('minecraft:chain')
+	event.shapeless('4x minecraft:chain',
+		[
+			'#forge:nuggets/iron',
+			'#forge:ingots/iron',
+			'#forge:nuggets/iron'
+		]
+	)
+	event.shapeless('12x minecraft:chain',
+		[
+			'#forge:nuggets/iron',
+			'#forge:ingots/iron',
+			'#forge:nuggets/iron',
+			'#forge:nuggets/iron',
+			'#forge:ingots/iron',
+			'#forge:nuggets/iron',
+			'#forge:nuggets/iron',
+			'#forge:ingots/iron',
+			'#forge:nuggets/iron'
+		]
+	)
+	// #endregion
 })
 
 ServerEvents.tags('block', event => {
