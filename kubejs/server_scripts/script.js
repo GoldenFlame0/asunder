@@ -826,5 +826,29 @@ ServerEvents.entityLootTables(event => {
 		table.addPool(pool => {
 			pool.addItem('minecraft:feather', 1, [0, 2])
 		})
+		table.addPool(pool => {
+			pool.addItem('minecraft:iron_nugget').randomChance(0.02)
+		})
+	})
+
+	event.modifyEntity('minecraft:husk', table => {
+		table.addPool(pool => {
+			pool.addItem('immersive_weathering:sand_layer_block', 1, [0, 5])
+		})
+		table.addPool(pool => {
+			pool.addItem('immersive_weathering:red_sand_layer_block', 1, [0, 5])
+		})
+	})
+
+	event.modifyEntity('minecraft:skeleton', table => {
+		table.addPool(pool => {
+			pool.addItem('thermal:tin_nugget').randomChance(0.02)
+		})
+	})
+
+	event.modifyEntity('minecraft:drowned', table => {
+		table.addPool(pool => {
+			pool.addItem('create:copper_nugget').randomChance(0.02)
+		})
 	})
 })
