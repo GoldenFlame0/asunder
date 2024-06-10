@@ -94,26 +94,26 @@ _version = 2
 					# 1.0: Fog starts at the closest edge of the vanilla render distance. 
 					# 1.414: Fog starts at the corner of the vanilla render distance.
 					# 
-					farFogStart = 0.0
+					farFogStart = "0.0"
 					# Where should the far fog end? 
 					# 
 					# 0.0: Fog ends at player's position.
 					# 1.0: Fog ends at the closest edge of the vanilla render distance. 
 					# 1.414: Fog ends at the corner of the vanilla render distance.
 					# 
-					farFogEnd = 1.0
+					farFogEnd = "1.0"
 					# What is the minimum fog thickness? 
 					# 
 					# 0.0: No fog. 
 					# 1.0: Fully opaque fog.
 					# 
-					farFogMin = 0.0
+					farFogMin = "0.0"
 					# What is the maximum fog thickness? 
 					# 
 					# 0.0: No fog. 
 					# 1.0: Fully opaque fog.
 					# 
-					farFogMax = 1.0
+					farFogMax = "1.0"
 					# How should the fog thickness should be calculated? 
 					# 
 					# LINEAR: Linear based on distance (will ignore 'density')
@@ -123,7 +123,7 @@ _version = 2
 					farFogFalloff = "EXPONENTIAL_SQUARED"
 					# Used in conjunction with the Fog Falloff.
 					# 
-					farFogDensity = 2.5
+					farFogDensity = "2.5"
 
 					[client.advanced.graphics.fog.advancedFog.heightFog]
 						# How should height effect the fog thickness? 
@@ -155,31 +155,31 @@ _version = 2
 						heightFogMode = "ABOVE_AND_BELOW_CAMERA"
 						# If the height fog is calculated around a set height, what is that height position?
 						# 
-						heightFogBaseHeight = 70.0
+						heightFogBaseHeight = "70.0"
 						# Should the start of the height fog be offset? 
 						# 
 						# 0.0: Fog start with no offset.
 						# 1.0: Fog start with offset of the entire world's height. (Includes depth)
 						# 
-						heightFogStart = 0.0
+						heightFogStart = "0.0"
 						# Should the end of the height fog be offset? 
 						# 
 						# 0.0: Fog end with no offset.
 						# 1.0: Fog end with offset of the entire world's height. (Include depth)
 						# 
-						heightFogEnd = 1.0
+						heightFogEnd = "1.0"
 						# What is the minimum fog thickness? 
 						# 
 						# 0.0: No fog. 
 						# 1.0: Fully opaque fog.
 						# 
-						heightFogMin = 0.0
+						heightFogMin = "0.0"
 						# What is the maximum fog thickness? 
 						# 
 						# 0.0: No fog. 
 						# 1.0: Fully opaque fog.
 						# 
-						heightFogMax = 1.0
+						heightFogMax = "1.0"
 						# How should the height fog thickness should be calculated? 
 						# 
 						# LINEAR: Linear based on height (will ignore 'density')
@@ -189,7 +189,7 @@ _version = 2
 						heightFogFalloff = "EXPONENTIAL_SQUARED"
 						# What is the height fog's density?
 						# 
-						heightFogDensity = 2.5
+						heightFogDensity = "2.5"
 
 			[client.advanced.graphics.ssao]
 				# Enable Screen Space Ambient Occlusion
@@ -201,18 +201,18 @@ _version = 2
 				sampleCount = 6
 				# Determines the radius Screen Space Ambient Occlusion is applied, measured in blocks.
 				# 
-				radius = 4.0
+				radius = "4.0"
 				# Determines how dark the Screen Space Ambient Occlusion effect will be.
 				# 
-				strength = 0.2
+				strength = "0.2"
 				# Increasing the value can reduce banding at the cost of reducing the strength of the effect.
 				# 
-				bias = 0.02
+				bias = "0.02"
 				# Determines how dark the occlusion shadows can be. 
 				# 0 = totally black at the corners 
 				# 1 = no shadow
 				# 
-				minLight = 0.25
+				minLight = "0.25"
 				# The radius, measured in pixels, that blurring is calculated for the SSAO. 
 				# Higher numbers will reduce banding at the cost of GPU performance.
 				# 
@@ -230,7 +230,7 @@ _version = 2
 				noiseSteps = 4
 				# How intense should the noise should be?
 				# 
-				noiseIntensity = 5.0
+				noiseIntensity = "5.0"
 				# Defines how far should the noise texture render before it fades away. (in blocks) 
 				# Set to 0 to disable noise from fading away
 				# 
@@ -246,7 +246,7 @@ _version = 2
 				# 
 				# Increasing the vanilla render distance increases the effectiveness of this setting.
 				# 
-				overdrawPrevention = "MEDIUM"
+				overdrawPrevention = "0.4"
 				# Buggy experimental option that will attempt to match up 
 				# Distant Horizons' and Minecraft's near/far clip planes, 
 				# reducing overdraw. 
@@ -263,14 +263,14 @@ _version = 2
 				# 1 = normal 
 				# 2 = near white
 				# 
-				brightnessMultiplier = 1.0
+				brightnessMultiplier = "1.0"
 				# How saturated LOD colors are. 
 				# 
 				# 0 = black and white 
 				# 1 = normal 
 				# 2 = very saturated
 				# 
-				saturationMultiplier = 1.0
+				saturationMultiplier = "1.0"
 				# If enabled caves will be culled 
 				# 
 				# NOTE: This feature is under development and 
@@ -301,7 +301,7 @@ _version = 2
 				# What the value should vanilla Minecraft's texture LodBias be? 
 				# If set to 0 the mod wont overwrite vanilla's default (which so happens to also be 0)
 				# 
-				lodBias = 0.0
+				lodBias = "0.0"
 				# How should LODs be shaded? 
 				# 
 				# AUTO: Uses the same side shading as vanilla Minecraft blocks. 
@@ -310,7 +310,7 @@ _version = 2
 				# DISABLED: All LOD sides will be rendered with the same brightness. 
 				# 
 				# 
-				lodShading = "MINECRAFT"
+				lodShading = "AUTO"
 				# If false LODs outside the player's camera 
 				# aren't drawn, increasing GPU performance. 
 				# 
@@ -397,7 +397,7 @@ _version = 2
 			# Higher values mean the matching is more strict.
 			# 
 			# 
-			multiverseSimilarityRequiredPercent = 0.0
+			multiverseSimilarityRequiredPercent = "0.0"
 
 		[client.advanced.lodBuilding]
 			# Determines how long must pass between LOD chunk updates before another. 
@@ -487,7 +487,7 @@ _version = 2
 			# is already set to 1 for the given option, or more finely 
 			# tune CPU performance.
 			# 
-			runTimeRatioForWorldGenerationThreads = 0.75
+			runTimeRatioForWorldGenerationThreads = "0.75"
 			# How many threads should be used when reading/writing LOD data to/from disk? 
 			# 
 			# Increasing this number will cause LODs to load in faster, 
@@ -507,7 +507,7 @@ _version = 2
 			# is already set to 1 for the given option, or more finely 
 			# tune CPU performance.
 			# 
-			runTimeRatioForFileHandlerThreads = 0.5
+			runTimeRatioForFileHandlerThreads = "0.5"
 			# How many threads should be used when building LODs? 
 			# 
 			# These threads run when terrain is generated, when
@@ -526,7 +526,7 @@ _version = 2
 			# is already set to 1 for the given option, or more finely 
 			# tune CPU performance.
 			# 
-			runTimeRatioForLodBuilderThreads = 0.5
+			runTimeRatioForLodBuilderThreads = "0.5"
 			# Should only be disabled if deadlock occurs and LODs refuse to update. 
 			# This will cause CPU usage to drastically increase for the Lod Builder threads. 
 			# 
@@ -792,7 +792,7 @@ _version = 2
 				boolTest = false
 				byteTest = "8"
 				intTest = 69420
-				doubleTest = 420.69
+				doubleTest = "420.69"
 				shortTest = "69"
 				longTest = "42069"
 				floatTest = "0.42069"
