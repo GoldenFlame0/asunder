@@ -543,7 +543,7 @@ ServerEvents.recipes(event => {
 				'N N'
 			],
 			{
-				W: `minecraft:${colour}_wool`,
+				W: `minecraft:${colour}_carpet`,
 				L: '#forge:leather',
 				N: '#forge:nuggets/iron'
 			}
