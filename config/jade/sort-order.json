@@ -66,6 +66,7 @@
   "create:exact_block": null,
   "create:filter": null,
   "create:goggles": null,
+  "gravestone:grave": null,
   "waystones:waystone": null,
   "minecraft:brewing_stand": null,
   "minecraft:beehive": null,
@@ -105,6 +106,5 @@
   "jade:registry_name": null,
   "jade:mod_name": null,
   "jade:distance": null,
-  "jade:block_face": null,
-  "gravestone:grave": null
+  "jade:block_face": null
 }
