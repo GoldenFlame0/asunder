@@ -1,4 +1,4 @@
-version:2975
+version:3120
 autoJump:false
 autoSuggestions:true
 chatColors:true
@@ -12,6 +12,7 @@ invertYMouse:false
 realmsNotifications:true
 reducedDebugInfo:false
 showSubtitles:true
+directionalAudio:false
 touchscreen:false
 fullscreen:false
 bobView:true
@@ -23,24 +24,24 @@ mouseSensitivity:0.5
 fov:0.5
 screenEffectScale:0.8
 fovEffectScale:0.4547347
+darknessEffectScale:1.0
 gamma:0.0
 renderDistance:9
-simulationDistance:12
+simulationDistance:11
 entityDistanceScaling:1.0
 guiScale:3
 particles:1
-maxFps:120
-difficulty:2
+maxFps:160
 graphicsMode:1
 ao:2
 prioritizeChunkUpdates:0
-biomeBlendRadius:2
-renderClouds:true
-resourcePacks:["vanilla","mod_resources","Immersive Weathering Generated Pack","Supplementaries Generated Pack","quark:emote_resources","file/Infernal Resources.zip","railways:green_signals","immersive_weathering:visual_waxed_iron_items","immersive_weathering:biome_tinted_mossy_blocks","immersive_weathering:better_brick_items","immersive_weathering:better_brick_blocks","create:legacy_copper","file/VanillaTweaks_r298003.zip","file/Icon Xaero\u0027s 1.13.zip","file/Extra Xaero\u0027s Minimap Icons - 1.18.2 - 1.0.zip","file/Creative Music.zip","resources/gmc_bonus_textures"]
-incompatibleResourcePacks:["quark:emote_resources","file/Infernal Resources.zip","file/Icon Xaero\u0027s 1.13.zip"]
+biomeBlendRadius:1
+renderClouds:"true"
+resourcePacks:["vanilla","mod_resources","Immersive Weathering Generated Pack","Supplementaries Generated Pack","quark:emote_resources","railways:green_signals","immersive_weathering:visual_waxed_iron_items","immersive_weathering:biome_tinted_mossy_blocks","immersive_weathering:better_brick_items","immersive_weathering:better_brick_blocks","create:legacy_copper","resources/gmc_bonus_textures"]
+incompatibleResourcePacks:["quark:emote_resources","resources/gmc_bonus_textures"]
 lastServer:192.168.86.111:44067
 lang:en_us
-soundDevice:
+soundDevice:""
 chatVisibility:0
 chatOpacity:1.0
 chatLineSpacing:0.0
@@ -57,9 +58,9 @@ chatDelay:0.0
 chatHeightUnfocused:0.44366195797920227
 chatScale:1.0
 chatWidth:1.0
-mipmapLevels:4
+mipmapLevels:2
 useNativeTransport:true
-mainHand:right
+mainHand:"right"
 attackIndicator:1
 narrator:0
 tutorialStep:none
@@ -70,10 +71,12 @@ skipMultiplayerWarning:true
 skipRealms32bitWarning:false
 hideMatchedNames:true
 joinedFirstServer:true
-hideBundleTutorial:false
+hideBundleTutorial:true
 syncChunkWrites:true
 showAutosaveIndicator:true
 allowServerListing:true
+chatPreview:1
+onlyShowSecureChat:false
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:1.0
@@ -84,6 +87,19 @@ soundCategory_neutral:1.0
 soundCategory_player:1.0
 soundCategory_ambient:1.0
 soundCategory_voice:1.0
+soundCategory_extrasounds$master:0.5
+soundCategory_extrasounds$inventory:1.0
+soundCategory_extrasounds$action:1.0
+soundCategory_extrasounds$chat:1.0
+soundCategory_extrasounds$chat_mention:1.0
+soundCategory_extrasounds$effects:1.0
+soundCategory_extrasounds$hotbar:1.0
+soundCategory_extrasounds$typing:1.0
+soundCategory_extrasounds$item_drop:1.0
+soundCategory_extrasounds$empty_hotbar:1.0
+soundCategory_extrasounds$enabled_footstep:1.0
+soundCategory_extrasounds$enabled_effects:0.0
+soundCategory_extrasounds$enabled_poof:0.0
 modelPart_cape:true
 modelPart_jacket:true
 modelPart_left_sleeve:true
