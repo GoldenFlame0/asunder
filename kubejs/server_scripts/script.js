@@ -766,6 +766,24 @@ ServerEvents.recipes(event => {
 		]
 	)
 	// #endregion
+
+	event.remove({id: 'quark:building/crafting/rope'})
+	event.shapeless('quark:rope', ['#supplementaries:ropes'])
+	event.shapeless('farmersdelight:rope', ['#supplementaries:ropes'])
+	event.shapeless('supplementaries:rope', ['#supplementaries:ropes'])
+	event.remove({id:'create:crafting/kinetics/rope_pulley'})
+	event.shaped('create:rope_pulley', 
+		[
+			' A ',
+			'RRR',
+			' I '
+		],
+		{
+			A: 'create:andesite_casing',
+			R: '#supplementaries:ropes',
+			I: '#forge:plates/iron'
+		}
+	)
 })
 
 ServerEvents.tags('block', event => {
