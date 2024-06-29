@@ -35,7 +35,7 @@
 	#Determines if Ghasts will shoot at Skeletons
 	ghastAttackSkeleton = false
 	#Determines if Ghasts will shoot at Glowsquitos
-	ghastAttackGlowsquito = false
+	ghastAttackGlowsquito = true
 	#Determines if Glowsquitos and Blackstone Dwarves will fight
 	glowsquitoAttackDwarf = true
 	#Determines if Glowsquitos will attack Entities with the Luminous Effect
