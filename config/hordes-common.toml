@@ -7,7 +7,7 @@
 	#Amount of mobs to spawn per wave.
 	spawnAmount = 25
 	#Multiplier by which the spawn amount increases by each time the event naturally spawns. (Set to 1 to disable scaling.)
-	hordeSpawnMultiplier = 1.05
+	hordeSpawnMultiplier = 1.01
 	#Time in ticks the event lasts for
 	hordeSpawnDuration = 6000
 	#Time in ticks between spawns for the horde spawn event.
@@ -18,9 +18,9 @@
 	#Range: > 1
 	hordeSpawnDays = 10
 	#Amount of days a horde event can be randomly delayed by
-	hordeSpawnVariation = 0
+	hordeSpawnVariation = 10
 	#Max cap for the number of entities that can exist from the horde at once.
-	hordeSpawnMax = 160
+	hordeSpawnMax = 100
 	#Length of a day (use only if you have another day that changes the length of the day/night cycle) Default is 24000
 	dayLength = 24000
 	#Set to true to enable the horde spawning on the first day. (Game day 0)
@@ -32,7 +32,7 @@
 	#Do the daylight cycle (and active horde events get paused while there are no players online.).
 	pauseEventServer = true
 	#How many ticks does the horde pathing ai take before recalculating? (Increase this if you are having server slowdown during horde events.)
-	hordePathingInterval = 10
+	hordePathingInterval = 15
 
 [Infection]
 	#Set to false to completely disable mob infection and anything related to it.
@@ -40,7 +40,7 @@
 	#Can villagers be infected.
 	infectVillagers = true
 	#Chance out of 100 for a villager to get infected
-	villagerInfectChance = 85
+	villagerInfectChance = 50
 	#Can players be infected.
 	infectPlayers = false
 	#Whether later levels of infected should slightly slow movement speed? 
@@ -54,7 +54,7 @@
 	#Do players who die to infection spawn a zombie?
 	infectionSpawnsZombiePlayers = false
 	#A list of entities that can be infected, followed by the chance out of 100 to infect, then the entity to convert them to, entities can have nbt attached to them.(e.g. minecraft:villager-85-minecraft:zombie_villager{ActiveEffects:[{Id:12,Amplifier:0,Duration:10000}]}), note: players and villagers have special code accociated with them, and should not be in this list
-	customConversionList = ["minecraft:horse-65-minecraft:zombie_horse", "minecraft:piglin-75-minecraft:zombified_piglin", "minecraft:piglin_brute-35-minecraft:zombified_piglin", "minecraft:hoglin-35-minecraft:zoglin"]
+	customConversionList = ["minecraft:piglin-75-minecraft:zombified_piglin", "minecraft:piglin_brute-35-minecraft:zombified_piglin", "minecraft:hoglin-35-minecraft:zoglin"]
 	#Do entities on the infectionEntities list automatically target entities on the infectionConversionList
 	infectionEntitiesAggroConversions = true
 	#What factor should the infection potion effect timer be multiplied by for each cured infection? (Resets on death, set to 1 to disable scaling)
@@ -90,7 +90,7 @@
 	#Whether unmounted horses are scared of zombies.
 	zombiesScareHorses = true
 	#Whether zombie piglins are hostile by default
-	zombiePiglinsHostile = true
+	zombiePiglinsHostile = false
 	#Whether piglins kill zombie mobs
 	piglinsHuntZombies = true
 	#Whether piglins use cures they find and keep in their inventory to heal infection.

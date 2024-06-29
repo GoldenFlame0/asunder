@@ -1,7 +1,7 @@
 
 [Damage-Module]
 	#The purpose of the damage module is to remove the invulnerability ticks after an entity is damaged to better suit gameplay where entities are going to be ignoring too much damage if left unchecked. Disabling will nullify every feature listed under this module.
-	damageModuleEnabled = true
+	damageModuleEnabled = false
 	#Some entities or damage sources rely on damage ticks to time their attacks. In these cases, we want to let them initiate i-frames.
 	#entityBlacklist default: ["minecraft:slime","minecraft:ender_dragon","minecraft:magma_cube"]
 	entityBlacklist = ["minecraft:slime", "minecraft:ender_dragon", "minecraft:magma_cube"]
