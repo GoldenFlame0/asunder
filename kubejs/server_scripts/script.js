@@ -645,6 +645,20 @@ ServerEvents.recipes(event => {
 		'minecraft:diamond',
 		'#forge:ingots/enderium'
 	)
+
+
+	event.replaceInput(
+		{output: 'farmersdelight:skillet'},
+		'#forge:ingots/iron',
+		'#forge:ingots/cast_iron'
+	)
+
+	event.replaceInput(
+		{output: 'farmersdelight:cooking_pot'},
+		'#forge:ingots/iron',
+		'#forge:ingots/cast_iron'
+	)
+
 	event.remove({id: 'refinedstorage:controller'})
 	event.recipes.createMechanicalCrafting('refinedstorage:controller',
 	[
@@ -655,7 +669,7 @@ ServerEvents.recipes(event => {
 		'RRWRR'
 	], {
 		C: 'refinedstorage:machine_casing',
-		R: '#forge:ingots/industrial_iron',
+		R: '#forge:ingots/cast_iron',
 		P: 'refinedstorage:advanced_processor',
 		M: 'quark:myalite_crystal',
 		W: 'refinedstorage:cable'
