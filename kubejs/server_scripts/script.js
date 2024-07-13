@@ -784,6 +784,10 @@ ServerEvents.recipes(event => {
 			I: '#forge:plates/iron'
 		}
 	)
+
+	// These are pointless right now.
+	event.remove({output: 'vintageimprovements:spring_coiling_machine_wheel'})
+	event.remove({output: 'vintageimprovements:spring_coiling_machine'})
 })
 
 ServerEvents.tags('block', event => {
