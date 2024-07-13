@@ -89,27 +89,6 @@ ServerEvents.recipes(event => {
 		'#forge:ingots/gold'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:gold_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:gold_upgraded_netherite_ingot',
-	[
-		'minecraft:netherite_ingot',
-		'#forge:ingots/gold',
-		'#gfz:rabbit_foot'
-	]).superheated()
-
-	event.remove({id: 'upgradednetherite:fire_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:fire_upgraded_netherite_ingot',
-	[
-		'minecraft:netherite_ingot',
-		'create_dd:blaze_gold'
-	])
-
-	event.remove({id: 'upgradednetherite:ender_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:ender_upgraded_netherite_ingot', 
-	[
-		'minecraft:netherite_ingot',
-		'#forge:ingots/enderium'
-	]).superheated()
 	event.remove({output:'thermal:enderium_dust'})
 	event.remove({output:'thermal:ender_pearl_dust'})
 	event.recipes.createMixing('2x thermal:enderium_ingot', 
@@ -121,55 +100,78 @@ ServerEvents.recipes(event => {
 		'#forge:ender_pearls'
 	]).heated()
 
-	event.remove({id: 'upgradednetherite:water_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:water_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:gold_essence'})
+	event.recipes.createMixing('upgradednetherite:gold_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
+		'#forge:ingots/gold',
+		'#gfz:rabbit_foot'
+	]).superheated()
+
+	event.remove({id: 'upgradednetherite:fire_essence'})
+	event.recipes.createMixing('upgradednetherite:fire_essence',
+	[
+		'minecraft:dragon_breath',
+		'create_dd:blaze_gold'
+	])
+
+	event.remove({id: 'upgradednetherite:ender_essence'})
+	event.recipes.createMixing('upgradednetherite:ender_essence', 
+	[
+		'minecraft:dragon_breath',
+		'#forge:ingots/enderium'
+	]).superheated()
+	
+
+	event.remove({id: 'upgradednetherite:water_essence'})
+	event.recipes.createMixing('upgradednetherite:water_essence',
+	[
+		'minecraft:dragon_breath',
 		'iceandfire:frost_stew'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:wither_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:wither_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:wither_essence'})
+	event.recipes.createMixing('upgradednetherite:wither_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'minecraft:wither_skeleton_skull'
 	]).superheated()
-	event.recipes.createMixing('upgradednetherite:wither_upgraded_netherite_ingot',
+	event.recipes.createMixing('upgradednetherite:wither_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'#forge:bones/wither',
 		'#forge:bones/wither',
 		'#forge:bones/wither',
 		'#forge:bones/wither'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:poison_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:poison_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:poison_essence'})
+	event.recipes.createMixing('upgradednetherite:poison_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'#gfz:spider_egg'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:phantom_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:phantom_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:phantom_essence'})
+	event.recipes.createMixing('upgradednetherite:phantom_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'minecraft:phantom_membrane',
 		'iceandfire:ghost_ingot'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:feather_upgraded_netherite_ingot'})
-	event.recipes.createMixing('upgradednetherite:feather_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:feather_essence'})
+	event.recipes.createMixing('upgradednetherite:feather_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'#forge:ingots/nickel',
 		'supplementaries:feather_block'
 	]).superheated()
 
-	event.remove({id: 'upgradednetherite:corrupt_upgraded_netherite_ingot'})
-	event.recipes.createMixing('2x upgradednetherite:corrupt_upgraded_netherite_ingot',
+	event.remove({id: 'upgradednetherite:corrupt_essence'})
+	event.recipes.createMixing('2x upgradednetherite:corrupt_essence',
 	[
-		'minecraft:netherite_ingot',
+		'minecraft:dragon_breath',
 		'rottencreatures:corrupted_wart',
 		'rottencreatures:magma_rotten_flesh',
 		'minecraft:ghast_tear',
