@@ -310,9 +310,7 @@ ServerEvents.recipes(event => {
 		]
 	)
 
-	event.remove({output: 'createaddition:capacitor'})
-	event.shapeless('createaddition:capacitor', [])
-
+	event.remove({output: 'create:electron_tube'})
 	event.shaped(
 		'2x create:electron_tube',
 		[
@@ -321,7 +319,7 @@ ServerEvents.recipes(event => {
 		],
 		{
 			R: 'create:polished_rose_quartz',
-			C: '#forge:ingots/constantan'
+			C: '#forge:plates/constantan'
 		}
 	)
 
