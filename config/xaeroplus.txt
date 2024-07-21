@@ -2,6 +2,7 @@
 [XP] Fast Mapping Delay:250.0
 [XP] Fast Mapping Rate Limit:25.0
 [XP] Fast Zip Writes:true
+[XP] Region Writes While Dim Switched:false
 [XP] Baritone Goal Waypoint:true
 [XP] Disable Waypoint Sharing:false
 [XP] Disable Receiving Waypoints:false
@@ -14,8 +15,9 @@
 [XP] Roof Y Level:250.0
 [XP] Roof Obsidian Opacity:150.0
 [XP] Roof Snow Opacity:10.0
+[XP] Overlay Opacity Fix:true
 [XP] Min WorldMap Zoom:0.1
-[XP] Skip Background Render:true
+[XP] Cross Dim Cursor Coords:false
 [XP] Prefer Overworld Waypoints:false
 [XP] Show Waypoint Distances:true
 [XP] null OW Dim Dir:true
@@ -23,10 +25,17 @@
 [XP] Nether Cave Fix:true
 [XP] Disable Xaero Internet Access:false
 [XP] Expanded Setting Entries:false
+[XP] Palette NewChunks:false
+[XP] Save/Load Palette NewChunks to Disk:true
+[XP] Palette NewChunks Opacity:100.0
+[XP] Palette NewChunks Color:0
+[XP] Palette NewChunks Inverse:false
 [XP] NewChunks Highlighting:false
 [XP] Save/Load NewChunks to Disk:true
 [XP] New Chunks Opacity:100.0
 [XP] New Chunks Color:0
+[XP] New Chunks Render Inverse:false
+[XP] New Chunks Inverse Color:1
 [XP] OldChunks Highlighting:false
 [XP] OldChunks Inverse:false
 [XP] Save/Load OldChunks to Disk:true
@@ -46,13 +55,17 @@
 [XP] PortalSkip Search Delay:10.0
 [XP] PortalSkip NewChunks:true
 [XP] PortalSkip OldChunks Inverse:true
+[XP] 2b2t Highways:false
+[XP] 2b2t Highways Color:2
+[XP] 2b2t Highways Opacity:100.0
+[XP] Highlight Regions Without Textures:false
 [XP] Show Render Distance:false
 [XP] Show Render Distance WorldMap:false
 [XP] Always Render Player Name:true
 [XP] Always Render Player Icon:true
 [XP] Fix Main Entity Dot:true
-[XP] Minimap FPS Limiter:false
-[XP] Minimap FPS Limit:60.0
+[XP] Minimap FPS Limiter:true
+[XP] Minimap FPS Limit:40.0
 [XP] Transparent Background:false
 [XP] Minimap Scaling Factor:2.0
 [XP] Switch to Nether:false
