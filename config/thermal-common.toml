@@ -27,3 +27,11 @@
 			#Whether this ore should spawn in the world.
 			Enable = true
 
+		[World.Ores."Oil Sand"]
+			#Whether this ore should spawn in the world.
+			Enable = true
+
+		[World.Ores.Cinnabar]
+			#Whether this ore should spawn in the world.
+			Enable = true
+

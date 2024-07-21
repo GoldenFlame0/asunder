@@ -13,16 +13,6 @@ ServerEvents.recipes(event => {
 	event.remove({id: 'immersive_weathering:ash_layer_block'})
 	event.shapeless('immersive_weathering:ash_layer_block', ['immersive_weathering:soot', 'immersive_weathering:soot'])
 	event.shapeless('6x immersive_weathering:ash_layer_block', ['#gfz:ash_block', '#gfz:ash_block', '#gfz:ash_block'])
-	
-	//#region Removing unused stuff
-	event.remove({output: '#forge:gears'})
-	event.remove({output: 'thermal:upgrade_augment_1'})
-	event.remove({output: 'thermal:upgrade_augment_2'})
-	event.remove({output: 'thermal:upgrade_augment_3'})
-	event.remove({output: 'thermal:signalum_ingot'})
-	event.remove({output: 'thermal:fluid_tank_augment'})
-	event.remove({id: 'createaddition:mixing/bioethanol'})
-	//#endregion
 
 	let dragonscales = ['red', 'green', 'bronze', 'gray', 'blue', 'white', 'sapphire', 'silver', 'electric', 'amythest', 'copper', 'black']
 	dragonscales.forEach((color, index) => {
@@ -594,7 +584,7 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	// Storage progresion
+	//#region Storage progresion
 	event.replaceInput(
 		{output: 'quark:crate'},
 		'#forge:ingots/iron',
@@ -668,12 +658,14 @@ ServerEvents.recipes(event => {
 		'RPMPR',
 		'RRWRR'
 	], {
-		C: 'refinedstorage:machine_casing',
+		C: '#gfz:machine_core',
 		R: '#forge:ingots/cast_iron',
 		P: 'refinedstorage:advanced_processor',
 		M: 'quark:myalite_crystal',
 		W: 'refinedstorage:cable'
 	})
+
+	// #endregion
 
 	// #region Spud's Revised Recipies
 	// https://modrinth.com/datapack/spuds-revised-recipes
@@ -799,9 +791,92 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	// These are pointless right now.
-	event.remove({output: 'vintageimprovements:spring_coiling_machine_wheel'})
-	event.remove({output: 'vintageimprovements:spring_coiling_machine'})
+	// #region Thermal Expansion Integration
+
+	// Make gears sane
+	let gearMetals = ['tin', 'lead', 'silver', 'nickel', 'bronze', 'electrum', 'invar', 'constantan', 'iron', 'gold', 'copper', 'netherite', 'lapis', 'diamond', 'emerald', 'quartz', 'signalum', 'lumium', 'enderium']
+	gearMetals.forEach((metal => {
+		event.remove({output: `#forge:gears/${metal}`})
+		event.shaped(`#forge:gears/${metal}`,
+			[
+				' N ',
+				'NAN',
+				' N '
+			],
+			{
+				N: `#forge:nuggets/${metal}`,
+				A: 'create:andesite_alloy'
+			}
+		)
+	}))
+
+	// Unify sawmills
+	event.remove({output: 'thermal:saw_blade'})
+	event.shaped('thermal:saw_blade',
+		[
+			'II ',
+			'ICI',
+			' II'
+		],
+		{
+			I: '#forge:plates/iron',
+			C: '#forge:gears/copper'
+		}
+	)
+	event.remove({output: 'create:mechanical_saw'})
+	event.shapeless('create:mechanical_saw', ['create:andesite_casing', 'thermal:saw_blade'])
+
+	// Make thermal machines harder to get
+	event.remove({output: 'thermal:rf_coil'})
+	event.remove({output: 'thermal:redstone_servo'})
+	event.shapeless('thermal:rf_coil', ['#forge:dusts/redstone', '#forge:rods/gold', '#forge:dusts/redstone'])
+	event.shapeless('thermal:redstone_servo', ['#forge:dusts/redstone', '#forge:rods/iron', '#forge:dusts/redstone'])
+	event.remove({output: 'thermal:machine_frame'})
+	event.remove({output: 'refinedstorage:machine_casing'})
+	event.shaped('thermal:machine_frame',
+		[
+			'QGQ',
+			'GCG',
+			'RGR'
+		], {
+			Q: 'refinedstorage:quartz_enriched_iron',
+			G: '#forge:glass',
+			C: '#forge:gears/tin',
+			R: '#forge:ingots/cast_iron'
+		}
+	)
+	event.shaped('2x thermal:machine_frame',
+		[
+			'QGQ',
+			'GCG',
+			'RGR'
+		], {
+			Q: 'refinedstorage:quartz_enriched_iron',
+			G: '#forge:glass',
+			C: '#forge:gears/constantan',
+			R: '#forge:ingots/cast_iron'
+		}
+	)
+	event.shapeless('thermal:machine_frame', ['#gfz:machine_core'])
+	event.shapeless('refinedstorage:machine_casing', ['#gfz:machine_core'])
+
+	// Integrate recipies
+	event.remove({output: 'create:gantry_carriage'})
+	event.shaped('create:gantry_carriage',
+		[
+			'C',
+			'S',
+			'G'
+		], {
+			C: 'create:andesite_casing',
+			S: 'thermal:redstone_servo',
+			G: 'create:cogwheel'
+		}
+	)
+
+	// #endregion
+
+	event.recipes.createCutting('4x create:shaft', ['#forge:rods/andesite'])
 })
 
 ServerEvents.tags('block', event => {
@@ -849,6 +924,9 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_2')
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_3')
 	event.get('gfz:pixie_jar').add('iceandfire:pixie_jar_4')
+
+	event.get('gfz:machine_core').add('thermal:machine_frame')
+	event.get('gfz:machine_core').add('refinedstorage:machine_casing')
 })
 
 ServerEvents.entityLootTables(event => {
