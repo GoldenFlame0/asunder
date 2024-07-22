@@ -102,7 +102,7 @@ ServerEvents.recipes(event => {
 	event.recipes.createMixing('upgradednetherite:fire_essence',
 	[
 		'minecraft:dragon_breath',
-		'create_dd:blaze_gold'
+		'iceandfire:fire_stew'
 	])
 
 	event.remove({id: 'upgradednetherite:ender_essence'})
@@ -313,66 +313,6 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	//#endregion
-
-	//#region neapolitan and create dd
-	event.remove({id: 'create_dd:mixing/cream'})
-	event.recipes.createMixing(
-		Fluid.of('create_dd:cream', 250),
-		[
-			Fluid.of('create_dd:condense_milk', 250),
-			'8x #gfz:small_ice'
-		]
-	)
-
-	function fixIceCream(icecream, keyIngredient)
-	{
-		event.remove({output: icecream})
-		event.shapeless(
-			icecream,
-			[
-				'minecraft:bowl',
-				keyIngredient,
-				'create_dd:cream_bucket'
-			]
-		).replaceIngredient('create_dd:cream_bucket', 'minecraft:bucket')
-	}
-	fixIceCream('neapolitan:chocolate_ice_cream', '#supplementaries:chocolate_bars')
-	fixIceCream('neapolitan:strawberry_ice_cream', '#forge:fruits/strawberry')
-	fixIceCream('neapolitan:vanilla_ice_cream', 'neapolitan:dried_vanilla_pods')
-	fixIceCream('neapolitan:banana_ice_cream', '#forge:fruits/banana')
-	fixIceCream('neapolitan:mint_ice_cream', 'neapolitan:mint_leaves')
-	fixIceCream('neapolitan:adzuki_ice_cream', 'neapolitan:roasted_adzuki_beans')
-	fixIceCream('respiteful:green_tea_ice_cream', 'farmersrespite:green_tea_leaves')
-	fixIceCream('respiteful:yellow_tea_ice_cream', 'farmersrespite:yellow_tea_leaves')
-	fixIceCream('respiteful:black_tea_ice_cream', 'farmersrespite:black_tea_leaves')
-	fixIceCream('respiteful:coffee_ice_cream', 'farmersrespite:coffee_beans')
-
-	event.remove({output: 'neapolitan:neapolitan_ice_cream'})
-	event.shapeless(
-		'neapolitan:neapolitan_ice_cream',
-		[
-			'neapolitan:vanilla_ice_cream',
-			'#supplementaries:chocolate_bars',
-			'#forge:fruits/strawberry'
-		]
-	)
-	event.shapeless(
-		'neapolitan:neapolitan_ice_cream',
-		[
-			'neapolitan:chocolate_ice_cream',
-			'#forge:fruits/strawberry',
-			'neapolitan:dried_vanilla_pods'
-		]
-	)
-	event.shapeless(
-		'neapolitan:neapolitan_ice_cream',
-		[
-			'neapolitan:strawberry_ice_cream',
-			'neapolitan:dried_vanilla_pods',
-			'#supplementaries:chocolate_bars'
-		]
-	)
 	//#endregion
 
 	event.remove({output: 'iceandfire:dragon_flute'})
