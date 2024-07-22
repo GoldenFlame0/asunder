@@ -79,17 +79,6 @@ ServerEvents.recipes(event => {
 		'#forge:ingots/gold'
 	]).superheated()
 
-	event.remove({output:'thermal:enderium_dust'})
-	event.remove({output:'thermal:ender_pearl_dust'})
-	event.recipes.createMixing('2x thermal:enderium_ingot', 
-	[
-		'#forge:ingots/lead',
-		'#forge:ingots/lead',
-		'#forge:dusts/diamond',
-		'#forge:ender_pearls',
-		'#forge:ender_pearls'
-	]).heated()
-
 	event.remove({id: 'upgradednetherite:gold_essence'})
 	event.recipes.createMixing('upgradednetherite:gold_essence',
 	[
@@ -524,7 +513,7 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	//#region Storage progresion
+	//#region Storage progression
 	event.replaceInput(
 		{output: 'quark:crate'},
 		'#forge:ingots/iron',
@@ -814,6 +803,29 @@ ServerEvents.recipes(event => {
 		}
 	)
 
+	event.remove({id: 'thermal:fire_charge/lumium_ingot_4'})
+	event.remove({id: 'thermal:fire_charge/enderium_ingot_2'})
+	event.remove({id: 'thermal:fire_charge/constantan_ingot_2'})
+	event.remove({id: 'thermal:fire_charge/bronze_ingot_4'})
+	event.remove({id: 'thermal:fire_charge/signalum_ingot_4'})
+	event.remove({id: 'thermal:fire_charge/invar_ingot_3'})
+
+	// #endregion
+
+	// #region Progression pacing changes.
+	// nether first.
+	// you should be able to get there without mods, but it'll be longer and less worth it.
+	event.replaceInput({id: 'minecraft:bucket'}, 'minecraft:iron', '#forge:plates/iron')
+
+	event.remove({id: 'minecraft:flint_and_steel'})
+	// having it pre-damaged seems neat
+	event.shapeless(Item.of('minecraft:flint_and_steel', "{Damage:32,RepairCost:0,display:{Name:'{\"text\":\"Flint and Iron\"}'}}"), ['#forge:rods/iron', 'minecraft:flint'])
+	event.shapeless('minecraft:flint_and_steel', ['#forge:rods/steel', 'minecraft:flint'])
+
+	// dunno a better way to get eyes of ender without allowing people to skip chunks of progression
+	event.remove({output: 'minecraft:ender_eye'})
+	event.recipes.thermal.crystallizer('minecraft:ender_eye', [(Fluid.of('thermal:ender', 250)), 'minecraft:blaze_powder'])
+	event.recipes.thermal.centrifuge(['minecraft:ender_pearl', 'minecraft:blaze_powder'], 'minecraft:ender_eye')
 	// #endregion
 
 	event.recipes.createCutting('4x create:shaft', ['#forge:rods/andesite'])
