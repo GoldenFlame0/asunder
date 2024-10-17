@@ -47,7 +47,7 @@
 	#Can villagers be infected.
 	infectVillagers = true
 	#Chance for a villager to get infected, a value of 1 or higher makes it guaranteed
-	villagerInfectChance = 0.50
+	villagerInfectChance = 0.5
 	#Can players be infected.
 	infectPlayers = false
 	#Whether later levels of infected should slightly slow movement speed? 
