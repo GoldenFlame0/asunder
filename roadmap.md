@@ -18,8 +18,10 @@
 # 2.3.0
 - Ars Nouveau for post-dragon content?
     - Hopefully should improve the pull to try and get to the End.
+    - Create integration
 - Can we update Apotheosis without breaking the existing world?
 - More farming!
+- Ice and Fire plus Iron's Spells integration
 
 # 2.4.0
 
