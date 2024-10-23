@@ -693,6 +693,8 @@ ServerEvents.recipes(event => {
 		'minecraft:diamond',
 		'refinedstorage:advanced_processor'
 	)
+	event.remove('storagedrawers:upgrade_template')
+	event.shapeless('5x storagedrawers:upgrade_template', ['create:andesite_casing', 'refinedstorage:basic_processor'])
 
 	// #endregion
 
