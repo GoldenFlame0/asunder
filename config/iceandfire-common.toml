@@ -15,10 +15,10 @@
 		"Generate Dragon Roost Chance" = 360
 		#1 out of this number chance per block that gold will generate in dragon lairs.
 		#Range: 1 ~ 10000
-		"Dragon Den Gold Amount" = 4
+		"Dragon Den Gold Amount" = 5
 		#Ratio of Stone(this number) to Ores in Dragon Caves
 		#Range: 1 ~ 10000
-		"Dragon Cave Ore Ratio" = 45
+		"Dragon Cave Ore Ratio" = 40
 
 	[Generation.Structures-Features]
 		#How far away dangerous structures(dragon roosts, cyclops caves, etc.) must be from spawn.
@@ -49,36 +49,36 @@
 		"Tamed Dragon Griefing" = true
 		#The percentage chance for a block to drop as an item when a dragon breaks it.
 		#Range: 0.0 ~ 1.0
-		"Dragon Block Breaking Drop Chance" = 0.10000000149011612
+		"Dragon Block Breaking Drop Chance" = 0.3
 
 	[Dragons.Attributes]
 		#How long it takes(in ticks) for a dragon egg to hatch
 		#Range: > 1
-		"Dragon Egg Hatch Time" = 7200
+		"Dragon Egg Hatch Time" = 7000
 		#Dragon Flap Noise Distance - Larger number, further away you can hear it
 		#Range: 0 ~ 10000
-		"Dragon Flap Noise Distance" = 4
+		"Dragon Flap Noise Distance" = 10
 		#Dragon Flute Distance - how many chunks away is the dragon flute effective?
 		#Range: 0 ~ 10000
-		"Dragon Flute Distance" = 4
+		"Dragon Flute Distance" = 5
 		#Max dragon health. Health is scaled to this
 		#Range: 1.0 ~ 100000.0
 		"Dragon Health" = 500.0
 		#Max dragon attack damage. Attack Damage is scaled to this
 		#Range: 1 ~ 10000
-		"Dragon Attack Damage" = 17
+		"Dragon Attack Damage" = 15
 		#Damage dealt from a successful fire breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number
 		#Range: 0.0 ~ 10000.0
-		"Dragon Attack Damage(Fire breath)" = 2.0
+		"Dragon Attack Damage(Fire breath)" = 1.0
 		#Damage dealt from a successful ice breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number
 		#Range: 0.0 ~ 10000.0
-		"Dragon Attack Damage(Ice breath)" = 2.5
+		"Dragon Attack Damage(Ice breath)" = 1.5
 		#Damage dealt from a successful lightning breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number
 		#Range: 0.0 ~ 10000.0
-		"Dragon Attack Damage(Lightning breath)" = 3.5
+		"Dragon Attack Damage(Lightning breath)" = 2.5
 		#Change this to slow down or speed up dragon or amphithere flight.
 		#Range: 0.0 ~ 2.0
-		"Dragon Flight Speed Modifier" = 1.0
+		"Dragon Flight Speed Modifier" = 0.9
 		#Enable this if your server is being bombarded with moved wrongly or moved too fast console messages. REQUIRES RESTART!
 		"Dragon Moved Wrongly Error Fix" = false
 
@@ -88,7 +88,7 @@
 		"Max Dragon Flight Height" = 128
 		#How far away dragons will detect gold blocks being destroyed or chests being opened
 		#Range: 0 ~ 10000
-		"Dragon Gold Search Length" = 30
+		"Dragon Gold Search Length" = 20
 		#True if dragons can despawn. Note that if this is false there may be SERIOUS lag issues.
 		"Dragons Despawn" = true
 		#True if tamed dragons go to sleep at night.
@@ -105,7 +105,7 @@
 		"Explosive Dragon Breath" = false
 		#How many blocks away can dragons spot potential prey. Note that increasing this could cause lag.
 		#Range: 1 ~ 10000
-		"Dragon Target Search Length" = 128
+		"Dragon Target Search Length" = 96
 		#How many blocks away can dragons wander from their defined "home" position.
 		#Range: 1 ~ 10000
 		"Dragon Wander From Home Distance" = 40
@@ -145,16 +145,16 @@
 		"Spawn Wandering Cyclops Chance" = 100
 		#Maximum cyclops health
 		#Range: 1.0 ~ 10000.0
-		"Cyclops Max Health" = 150.0
+		"Cyclops Max Health" = 140.0
 		#How many blocks away can cyclopes detect sheep. Note that increasing this could cause lag.
 		#Range: 1 ~ 10000
 		"Cyclopes Sheep Search Length" = 17
 		#Cyclops attack strength
 		#Range: 1.0 ~ 10000.0
-		"Cyclops Attack Strength" = 15.0
+		"Cyclops Attack Strength" = 11.0
 		#Amount of damage done with cyclops bite attack.
 		#Range: 1.0 ~ 10000.0
-		"Cyclops Bite Strength" = 40.0
+		"Cyclops Bite Strength" = 30.0
 		#Whether or not cyclops can break logs or leaves in their way
 		"Cyclops Griefing" = true
 
@@ -166,13 +166,13 @@
 		"Use Siren Shader" = true
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Spawn Sirens Chance" = 400
+		"Spawn Sirens Chance" = 300
 		#how long(in ticks) can a siren use its sing effect on a player, without a cooldown.
 		#Range: 100 ~ 24000
-		"Siren Max Sing Time" = 12000
+		"Siren Max Sing Time" = 10000
 		#how long(in ticks) a siren has to wait after failing to lure in a player
 		#Range: 100 ~ 24000
-		"Siren Time Between Songs" = 2000
+		"Siren Time Between Songs" = 2500
 
 	[Mobs.DeathWorms]
 		#How many blocks away can death worms spot potential prey. Note that increasing this could cause lag
@@ -208,10 +208,10 @@
 	[Mobs.Stymphalians]
 		#How many blocks away can stymphalian birds spot potential prey. Note that increasing this could cause lag.
 		#Range: 1 ~ 10000
-		"Stymphalian Bird Target Search Length" = 64
+		"Stymphalian Bird Target Search Length" = 48
 		#1/this number chance for a stymphalian feather to turn into an item before despawning. Zero means never.
 		#Range: 0 ~ 10000
-		"Stymphalian Bird Feather Drop Chance" = 25
+		"Stymphalian Bird Feather Drop Chance" = 20
 		#Stymphalian bird feather attack strength.
 		#Range: 0.0 ~ 10000.0
 		"Stymphalian Bird Feather Attack Strength" = 1.0
