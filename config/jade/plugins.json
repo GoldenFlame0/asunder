@@ -78,5 +78,10 @@
   },
   "gravestone": {
     "grave": true
+  },
+  "storagedrawers": {
+    "display.stacklimit": true,
+    "display.content": true,
+    "display.status": true
   }
 }

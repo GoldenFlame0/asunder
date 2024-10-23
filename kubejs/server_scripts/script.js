@@ -5,6 +5,26 @@ console.info('Hello, World! (You will see this line every time server resources 
 let wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
 
 ServerEvents.recipes(event => {
+	function SurroundXInYToMakeZ (inner, outer, result)
+	{
+		event.shaped(result,
+			[
+				'OOO',
+				'OIO',
+				'OOO'
+			],
+			{
+				O: outer,
+				I: inner
+			}
+		)
+	}
+	function AddReflexive(input1, input2)
+	{
+		event.shapeless(input1, [input2])
+		event.shapeless(input2, [input1])
+	}
+
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
 	event.smoking('minecraft:leather', 'minecraft:rotten_flesh')
@@ -526,6 +546,21 @@ ServerEvents.recipes(event => {
 		'#forge:plates/tin'
 	)
 
+	event.remove({id: 'supplementaries:sack'})
+	event.shaped(
+		'supplementaries:sack',
+		[
+			'FSF',
+			'F F',
+			'FTF'
+		],
+		{
+			F: '#forge:fiber',
+			S: '#forge:string',
+			T: '#forge:plates/tin'
+		}
+	)
+
 	event.remove({output:'quark:backpack'})
 	event.shaped(
 		'quark:backpack',
@@ -558,25 +593,37 @@ ServerEvents.recipes(event => {
 			B: '#balm:wooden_chests'
 		}
 	)
-	
-	event.replaceInput(
-		{output: 'refinedstorage:raw_advanced_processor'},
-		'minecraft:diamond',
-		'#forge:ingots/enderium'
+
+	event.remove({id: 'refinedstorage:raw_basic_processor'})
+	event.shaped('2x refinedstorage:raw_basic_processor',
+		[
+			' I ',
+			'BQB',
+			' S '
+		],
+		{
+			I: '#forge:dusts/iron',
+			B: 'refinedstorage:processor_binding',
+			Q: 'create:polished_rose_quartz',
+			S: '#forge:silicon'
+		}
 	)
 
+	event.remove({id: 'refinedstorage:raw_improved_processor'})
+	event.remove({id: 'refinedstorage:improved_processor'})
+	event.recipes.createMixing('refinedstorage:raw_improved_processor',
+		[
+			'refinedstorage:raw_basic_processor',
+			'#forge:dusts/gold',
+			'#forge:dusts/constantan'
+		]
+	).heated()
+	event.recipes.thermal.crystallizer('refinedstorage:improved_processor', [(Fluid.of('minecraft:water', 250)), 'refinedstorage:raw_improved_processor'])
 
-	event.replaceInput(
-		{output: 'farmersdelight:skillet'},
-		'#forge:ingots/iron',
-		'#forge:ingots/cast_iron'
-	)
-
-	event.replaceInput(
-		{output: 'farmersdelight:cooking_pot'},
-		'#forge:ingots/iron',
-		'#forge:ingots/cast_iron'
-	)
+	event.remove({id: 'refinedstorage:raw_advanced_processor'})
+	event.remove({id: 'refinedstorage:advanced_processor'})
+	event.recipes.shapeless('refinedstorage:raw_advanced_processor', ['#forge:ingots/enderium', 'refinedstorage:processor_binding', 'refinedstorage:raw_improved_processor'])
+	event.recipes.thermal.crystallizer('refinedstorage:advanced_processor', [(Fluid.of('thermal:glowstone', 250)), 'refinedstorage:raw_advanced_processor'])
 
 	event.remove({id: 'refinedstorage:controller'})
 	event.recipes.createMechanicalCrafting('refinedstorage:controller',
@@ -594,7 +641,72 @@ ServerEvents.recipes(event => {
 		W: 'refinedstorage:cable'
 	})
 
+	let storagemetals = ['iron', 'gold', 'diamond', 'obsidian', 'netherite']
+	storagemetals.forEach((metal => {
+		event.remove({output: `expandedstorage:${metal}_chest`})
+		event.remove({output: `expandedstorage:old_${metal}_chest`})
+		event.remove({output: `expandedstorage:${metal}_barrel`})
+	}))
+
+	let conversionkits =
+	[
+		'expandedstorage:wood_to_copper_conversion_kit', 'expandedstorage:wood_to_iron_conversion_kit', 'expandedstorage:wood_to_gold_conversion_kit', 'expandedstorage:wood_to_diamond_conversion_kit', 'expandedstorage:wood_to_obsidian_conversion_kit', 'expandedstorage:wood_to_netherite_conversion_kit',
+		'expandedstorage:copper_to_iron_conversion_kit', 'expandedstorage:copper_to_gold_conversion_kit', 'expandedstorage:copper_to_diamond_conversion_kit', 'expandedstorage:copper_to_obsidian_conversion_kit', 'expandedstorage:copper_to_netherite_conversion_kit',
+		'expandedstorage:iron_to_gold_conversion_kit', 'expandedstorage:iron_to_diamond_conversion_kit', 'expandedstorage:iron_to_obsidian_conversion_kit', 'expandedstorage:iron_to_netherite_conversion_kit',
+		'expandedstorage:gold_to_diamond_conversion_kit', 'expandedstorage:gold_to_obsidian_conversion_kit', 'expandedstorage:gold_to_netherite_conversion_kit',
+		'expandedstorage:diamond_to_obsidian_conversion_kit', 'expandedstorage:diamond_to_netherite_conversion_kit',
+		'expandedstorage:obsidian_to_netherite_conversion_kit'
+	]
+	conversionkits.forEach((kit => {
+		event.remove({output: kit})
+	}))
+
+	// Old
+	event.shapeless('expandedstorage:old_wood_chest', ['#forge:chests/wooden'])
+	event.shapeless('minecraft:chest', ['expandedstorage:old_wood_chest'])
+	
+	// Iron
+	SurroundXInYToMakeZ('#forge:chests/wooden', '#forge:plates/iron', 'expandedstorage:iron_chest')
+	SurroundXInYToMakeZ('expandedstorage:old_wood_chest', '#forge:plates/iron', 'expandedstorage:old_iron_chest')
+	SurroundXInYToMakeZ('#forge:barrels/wooden', '#forge:plates/iron', 'expandedstorage:iron_barrel')
+	AddReflexive('expandedstorage:iron_chest', 'expandedstorage:old_iron_chest')
+
+	// Gold
+	SurroundXInYToMakeZ('expandedstorage:iron_chest', '#forge:plates/gold', 'expandedstorage:gold_chest')
+	SurroundXInYToMakeZ('expandedstorage:old_iron_chest', '#forge:plates/gold', 'expandedstorage:old_gold_chest')
+	SurroundXInYToMakeZ('expandedstorage:iron_barrel', '#forge:plates/gold', 'expandedstorage:gold_barrel')
+	AddReflexive('expandedstorage:gold_chest', 'expandedstorage:old_gold_chest')
+
+	// Drawers
+	event.replaceInput(
+		{output: 'storagedrawers:compacting_drawers_3'},
+		'minecraft:iron_ingot',
+		'refinedstorage:basic_processor'
+	)
+	event.replaceInput(
+		{output: 'storagedrawers:controller_slave'},
+		'minecraft:gold_ingot',
+		'refinedstorage:improved_processor'
+	)
+	event.replaceInput(
+		{output: 'storagedrawers:controller'},
+		'minecraft:diamond',
+		'refinedstorage:advanced_processor'
+	)
+
 	// #endregion
+
+	event.replaceInput(
+		{output: 'farmersdelight:skillet'},
+		'#forge:ingots/iron',
+		'#forge:ingots/cast_iron'
+	)
+
+	event.replaceInput(
+		{output: 'farmersdelight:cooking_pot'},
+		'#forge:ingots/iron',
+		'#forge:ingots/cast_iron'
+	)
 
 	// #region Spud's Revised Recipies
 	// https://modrinth.com/datapack/spuds-revised-recipes
