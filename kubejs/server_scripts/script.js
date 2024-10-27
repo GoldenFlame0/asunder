@@ -676,6 +676,12 @@ ServerEvents.recipes(event => {
 	SurroundXInYToMakeZ('expandedstorage:iron_barrel', '#forge:plates/gold', 'expandedstorage:gold_barrel')
 	AddReflexive('expandedstorage:gold_chest', 'expandedstorage:old_gold_chest')
 
+	// Diamond
+	SurroundXInYToMakeZ('expandedstorage:gold_chest', '#forge:dusts/diamond', 'expandedstorage:diamond_chest')
+	SurroundXInYToMakeZ('expandedstorage:old_gold_chest', '#forge:dusts/diamond', 'expandedstorage:old_diamond_chest')
+	SurroundXInYToMakeZ('expandedstorage:gold_barrel', '#forge:dusts/diamond', 'expandedstorage:diamond_barrel')
+	AddReflexive('expandedstorage:diamond_chest', 'expandedstorage:old_diamond_chest')
+
 	// Drawers
 	event.replaceInput(
 		{output: 'storagedrawers:compacting_drawers_3'},
