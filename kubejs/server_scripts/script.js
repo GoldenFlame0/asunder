@@ -1014,11 +1014,11 @@ ServerEvents.entityLootTables(event => {
 	})
 
 	event.modifyEntity('minecraft:husk', table => {
-		table.addPool(pool => {
-			pool.addItem('immersive_weathering:sand_layer_block', 1, [0, 5])
-		})
-		table.addPool(pool => {
-			pool.addItem('immersive_weathering:red_sand_layer_block', 1, [0, 5])
+		table.addPool(pool => 
+		{
+			pool.rolls = [0, 2]
+			pool.addItem('minecraft:sand', 1)
+			pool.addItem('minecraft:red_sand', 1)
 		})
 	})
 
