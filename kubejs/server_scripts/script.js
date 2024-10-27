@@ -1009,7 +1009,10 @@ ServerEvents.entityLootTables(event => {
 			pool.addItem('minecraft:feather', 1, [0, 2])
 		})
 		table.addPool(pool => {
-			pool.addItem('minecraft:iron_nugget').randomChance(0.2)
+			pool.rolls = [0, 2]
+			pool.addItem('minecraft:iron_nugget', 2)
+			pool.addItem('irons_spellbooks:common_ink', 1)
+			pool.addItem('apotheosis:common_material', 1)
 		})
 	})
 
@@ -1017,8 +1020,10 @@ ServerEvents.entityLootTables(event => {
 		table.addPool(pool => 
 		{
 			pool.rolls = [0, 2]
-			pool.addItem('minecraft:sand', 1)
-			pool.addItem('minecraft:red_sand', 1)
+			pool.addItem('minecraft:sand', 2)
+			pool.addItem('minecraft:red_sand', 2)
+			pool.addItem('irons_spellbooks:common_ink', 1)
+			pool.addItem('apotheosis:common_material', 1)
 		})
 	})
 
