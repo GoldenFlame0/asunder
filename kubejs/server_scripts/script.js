@@ -948,6 +948,11 @@ ServerEvents.recipes(event => {
 	// #endregion
 
 	event.recipes.createCutting('4x create:shaft', ['#forge:rods/andesite'])
+
+	// Add some uses for commonly dropped stuff
+	event.shapeless('minecraft:paper', ['gravestone:obituary'])
+	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
+	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
 })
 
 ServerEvents.tags('block', event => {
