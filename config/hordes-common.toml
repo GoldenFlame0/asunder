@@ -9,7 +9,7 @@
 	#Multiplier by which the spawn amount increases by each time the event naturally spawns. (Set to 1 to disable scaling.)
 	hordeSpawnMultiplier = 1.01
 	#Time in ticks the event lasts for
-	hordeSpawnDuration = 6000
+	hordeSpawnDuration = 5000
 	#Time in ticks between spawns for the horde spawn event.
 	hordeSpawnInterval = 1000
 	#What time of day does the horde event start? eg 18000 is midnight with default day length.
@@ -31,7 +31,7 @@
 	#Do the daylight cycle (and active horde events get paused while there are no players online.).
 	pauseEventServer = true
 	#How many ticks does the horde pathing ai take before recalculating? (Increase this if you are having server slowdown during horde events.)
-	hordePathingInterval = 20
+	hordePathingInterval = 19
 	#How fast do horde mobs move towards their tracked player?
 	hordeEntitySpeed = 0.9
 	#Are horde events tracked by player play time instead of world time.
@@ -47,7 +47,7 @@
 	#Can villagers be infected.
 	infectVillagers = true
 	#Chance for a villager to get infected, a value of 1 or higher makes it guaranteed
-	villagerInfectChance = 0.3
+	villagerInfectChance = 0.29
 	#Can players be infected.
 	infectPlayers = false
 	#Whether later levels of infected should slightly slow movement speed? 
