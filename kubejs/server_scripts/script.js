@@ -1000,7 +1000,7 @@ ServerEvents.entityLootTables(event => {
 			pool.addItem('iceandfire:dread_key').randomChance(0.01)
 		})
 		table.addPool(pool => {
-			pool.addItem('thermal:silver_nugget').randomChance(0.1)
+			pool.addItem('thermal:silver_nugget').randomChance(0.2)
 		})
 	})
 
@@ -1009,7 +1009,7 @@ ServerEvents.entityLootTables(event => {
 			pool.addItem('minecraft:feather', 1, [0, 2])
 		})
 		table.addPool(pool => {
-			pool.addItem('minecraft:iron_nugget').randomChance(0.1)
+			pool.addItem('minecraft:iron_nugget').randomChance(0.2)
 		})
 	})
 
@@ -1024,25 +1024,25 @@ ServerEvents.entityLootTables(event => {
 
 	event.modifyEntity('minecraft:skeleton', table => {
 		table.addPool(pool => {
-			pool.addItem('thermal:tin_nugget').randomChance(0.1)
+			pool.addItem('thermal:tin_nugget').randomChance(0.2)
 		})
 	})
 
 	event.modifyEntity('minecraft:drowned', table => {
 		table.addPool(pool => {
-			pool.addItem('create:copper_nugget').randomChance(0.1)
+			pool.addItem('create:copper_nugget').randomChance(0.2)
 		})
 	})
 
 	event.modifyEntity('rottencreatures:swampy', table => {
 		table.addPool(pool => {
-			pool.addItem('thermal:lead_nugget').randomChance(0.1)
+			pool.addItem('thermal:lead_nugget').randomChance(0.2)
 		})
 	})
 
 	event.modifyEntity('minecraft:zoglin', table => {
 		table.addPool(pool => {
-			pool.addItem('infernalexp:raw_hogchop').randomChance(0.8)
+			pool.addItem('infernalexp:raw_hogchop').randomChance(0.9)
 		})
 	})
 })
