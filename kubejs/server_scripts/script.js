@@ -403,7 +403,6 @@ ServerEvents.recipes(event => {
 	//#endregion
 
 	//#region dirt integration
-
 	event.recipes.createSplashing(
 		'minecraft:clay_ball',
 		[
@@ -1000,6 +999,9 @@ ServerEvents.entityLootTables(event => {
 		table.addPool(pool => {
 			pool.addItem('iceandfire:dread_key').randomChance(0.01)
 		})
+		table.addPool(pool => {
+			pool.addItem('thermal:silver_nugget').randomChance(0.1)
+		})
 	})
 
 	event.modifyEntity('minecraft:zombie', table => {
@@ -1029,12 +1031,6 @@ ServerEvents.entityLootTables(event => {
 	event.modifyEntity('minecraft:drowned', table => {
 		table.addPool(pool => {
 			pool.addItem('create:copper_nugget').randomChance(0.1)
-		})
-	})
-
-	event.modifyEntity('rottencreatures:frostbitten', table => {
-		table.addPool(pool => {
-			pool.addItem('thermal:silver_nugget').randomChance(0.1)
 		})
 	})
 
