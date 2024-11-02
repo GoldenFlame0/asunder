@@ -982,6 +982,10 @@ ServerEvents.recipes(event => {
 			G: 'apotheosis:mythic_material'
 		}
 	)
+
+	event.remove({id: "irons_spellbooks:poisonous_potato"})
+	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'minecraft:potato', '4x minecraft:poisonous_potato')
+	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'farmersdelight:tomato', '4x farmersdelight:rotten_tomato')
 })
 
 ServerEvents.tags('block', event => {
@@ -1032,6 +1036,8 @@ ServerEvents.tags('item', event => {
 
 	event.get('gfz:machine_core').add('thermal:machine_frame')
 	event.get('gfz:machine_core').add('refinedstorage:machine_casing')
+
+	event.get('irons_spellbooks:nature_focus').add('farmersdelight:rotten_tomato')
 })
 
 ServerEvents.entityLootTables(event => {
