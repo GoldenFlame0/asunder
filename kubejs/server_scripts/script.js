@@ -934,7 +934,7 @@ ServerEvents.recipes(event => {
 	// #region Progression pacing changes.
 	// nether first.
 	// you should be able to get there without mods, but it'll be longer and less worth it.
-	event.replaceInput({id: 'minecraft:bucket'}, 'minecraft:iron', '#forge:plates/iron')
+	event.replaceInput({id: 'minecraft:bucket'}, 'minecraft:iron_ingot', '#forge:plates/iron')
 
 	event.remove({id: 'minecraft:flint_and_steel'})
 	// having it pre-damaged seems neat
