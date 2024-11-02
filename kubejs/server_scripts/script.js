@@ -969,7 +969,7 @@ ServerEvents.recipes(event => {
 
 	event.shaped
 	(
-		'angelring:angel_ring',
+		Item.of('angelring:angel_ring', "{display:{Lore:['[\"\",{\"text\":\"It hums with the power of divinity.\",\"color\":\"#ea6f14\"}]'],Name:'[\"\",{\"text\":\"Angel Ring\",\"italic\":false,\"color\":\"#ea6f14\"}]'}}"),
 		[
 			' V ',
 			'DBD',
