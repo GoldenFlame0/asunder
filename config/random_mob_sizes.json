@@ -5,31 +5,6 @@
 		"min_scaling": 0.9,
 		"max_scaling": 1.1
 	},
-	"minecraft:husk": {
-		"type": "uniform",
-		"min_scaling": 0.8,
-		"max_scaling": 1.2
-	},
-	"minecraft:sheep": {
-		"type": "uniform",
-		"min_scaling": 0.9,
-		"max_scaling": 1.1
-	},
-	"minecraft:drowned": {
-		"type": "uniform",
-		"min_scaling": 0.8,
-		"max_scaling": 1.2
-	},
-	"minecraft:cow": {
-		"type": "uniform",
-		"min_scaling": 0.9,
-		"max_scaling": 1.1
-	},
-	"minecraft:enderman": {
-		"type": "uniform",
-		"min_scaling": 0.8,
-		"max_scaling": 1.2
-	},
 	"minecraft:pig": {
 		"type": "uniform",
 		"min_scaling": 0.9,
@@ -44,5 +19,30 @@
 		"type": "gaussian",
 		"min_scaling": 0.5,
 		"max_scaling": 1.5
+	},
+	"minecraft:drowned": {
+		"type": "uniform",
+		"min_scaling": 0.8,
+		"max_scaling": 1.2
+	},
+	"minecraft:cow": {
+		"type": "uniform",
+		"min_scaling": 0.9,
+		"max_scaling": 1.1
+	},
+	"minecraft:sheep": {
+		"type": "uniform",
+		"min_scaling": 0.9,
+		"max_scaling": 1.1
+	},
+	"minecraft:husk": {
+		"type": "uniform",
+		"min_scaling": 0.8,
+		"max_scaling": 1.2
+	},
+	"minecraft:enderman": {
+		"type": "uniform",
+		"min_scaling": 0.8,
+		"max_scaling": 1.2
 	}
 }
