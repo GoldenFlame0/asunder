@@ -953,6 +953,35 @@ ServerEvents.recipes(event => {
 	event.shapeless('minecraft:paper', ['gravestone:obituary'])
 	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
 	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
+
+
+	// Angel ring time
+	event.remove({output: 'angelring:diamond_ring'})
+	event.remove({output: 'angelring:angel_ring'})
+	event.remove({output: 'angelring:energetic_angel_ring'})
+	event.remove({output: 'angelring:leadstone_angel_ring'})
+	event.remove({output: 'angelring:hardened_angel_ring'})
+	event.remove({output: 'angelring:reinforced_angel_ring'})
+	event.remove({output: 'angelring:resonant_angel_ring'})
+
+	event.remove({output: 'irons_spellbooks:divine_pearl'})
+	event.shapeless('irons_spellbooks:divine_pearl', ['#forge:ingots/electrum', '#forge:gems/amethyst'])
+
+	event.shaped
+	(
+		'angelring:angel_ring',
+		[
+			' V ',
+			'DBD',
+			' G '
+		],
+		{
+			V: 'alexsmobs:void_worm_eye',
+			B: 'unusualend:bottled_shulker_bullet',
+			D: 'irons_spellbooks:divine_pearl',
+			G: 'apotheosis:mythic_material'
+		}
+	)
 })
 
 ServerEvents.tags('block', event => {
