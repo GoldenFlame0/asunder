@@ -954,7 +954,7 @@ ServerEvents.recipes(event => {
 	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
 	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
 
-
+    // #region progression nudges
 	// Angel ring time
 	event.remove({output: 'angelring:diamond_ring'})
 	event.remove({output: 'angelring:angel_ring'})
@@ -982,6 +982,85 @@ ServerEvents.recipes(event => {
 			G: 'apotheosis:mythic_material'
 		}
 	)
+
+	// Storage drawers keys
+	event.remove({output: 'storagedrawers:drawer_key'})
+	event.shaped
+	(
+		'storagedrawers:drawer_key',
+		[
+			'NR',
+			' R',
+			' T'
+		],
+		{
+			N: '#forge:nuggets/gold',
+			R: '#forge:rods/gold',
+			T: 'storagedrawers:upgrade_template'
+		}
+	)
+	event.shaped
+	(
+		'2x storagedrawers:drawer_key',
+		[
+			'NR',
+			' R',
+			' T'
+		],
+		{
+			N: '#forge:nuggets/brass',
+			R: '#forge:rods/brass',
+			T: 'storagedrawers:upgrade_template'
+		}
+	)
+
+	// Apoth progression
+	event.shaped
+	(
+		'apotheosis:simple_reforging_table',
+		[
+			'PSP',
+			'GDG',
+			'OOO'
+		],
+		{
+			G: 'apotheosis:gem_dust',
+			P: '#forge:plates/iron',
+			D: 'minecraft:diamond',
+			S: 'minecraft:smooth_stone',
+			O: 'minecraft:obsidian'
+		}
+	)
+
+	// Cheaper anvils
+	event.shaped
+	(
+		'minecraft:anvil',
+		[
+			'IBI',
+			' B '
+		],
+		{
+			I: '#forge:ingots/cast_iron',
+			B: 'createbigcannons:cast_iron_block'
+		}
+	)
+
+	event.shaped
+	(
+		'minecraft:anvil',
+		[
+			'IBI',
+			'NIN'
+		],
+		{
+			I: '#forge:ingots/steel',
+			B: '#forge:storage_blocks/steel',
+		    N: '#forge:nuggets/steel'
+		}
+	)
+
+	// #endregion
 
 	event.remove({id: "irons_spellbooks:poisonous_potato"})
 	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'minecraft:potato', '4x minecraft:poisonous_potato')
