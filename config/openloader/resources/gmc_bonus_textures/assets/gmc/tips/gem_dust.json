@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Using the Salvaging Table is the best way to get Gem Dust, but you can also use a Millstone or a Crushing Wheel. Or, crush a gem under a falling anvil."
+    }
+  }
