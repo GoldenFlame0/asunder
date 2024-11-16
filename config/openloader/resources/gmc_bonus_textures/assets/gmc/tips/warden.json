@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "Wardens are a deadly, horrific, near-invulnerable amalgamation of dead souls. They spawn from Sculk Shriekers, and spread Sculk where they walk."
+    }
+  }

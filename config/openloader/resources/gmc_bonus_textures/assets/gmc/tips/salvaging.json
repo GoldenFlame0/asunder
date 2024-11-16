@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "By using the Reforging Table, you can add affixes to affix-less tools, weapons, and armour."
+    }
+  }

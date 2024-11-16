@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "To identify an enchanted item, use a Scroll of Identification on it while it's in your inventory, or right click an Enchanting Table with it."
+    }
+  }

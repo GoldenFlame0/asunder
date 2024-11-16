@@ -13,7 +13,6 @@
         "attempts": 1,
         "conditions": {
             "dimension": "minecraft:the_end",
-            "minlight ": 0,
             "maxlight": 5
         }
     }
