@@ -12,8 +12,7 @@
         "persecond": 0.1,
         "attempts": 1,
         "conditions": {
-            "dimension": "minecraft:the_end",
-            "maxlight": 5
+            "dimension": "minecraft:the_end"
         }
     }
 ]

@@ -34,6 +34,68 @@ ServerEvents.recipes(event => {
 	event.shapeless('immersive_weathering:ash_layer_block', ['immersive_weathering:soot', 'immersive_weathering:soot'])
 	event.shapeless('6x immersive_weathering:ash_layer_block', ['#gfz:ash_block', '#gfz:ash_block', '#gfz:ash_block'])
 
+	event.shapeless('4x twigs:pebble', ['#forge:cobblestone'])
+
+	event.recipes.createMixing('minecraft:slime_ball', [
+		'crittersandcompanions:sea_bunny_slime_block'
+	])
+
+	event.remove({output: 'minecraft:conduit'})
+	event.shaped
+	(
+		'minecraft:conduit',
+		[
+			'SSS',
+			'SHS',
+			'SSS'
+		],
+		{
+			S: '#gfz:shell',
+			H: 'minecraft:heart_of_the_sea'
+		}
+	)
+
+	event.remove({id: 'upgrade_aquatic:trident'})
+	event.remove({id: 'apotheosis:inert_trident'})
+	event.remove({id: 'upgrade_aquatic:prismarine_rod'})
+	event.shaped
+	(
+		'upgrade_aquatic:prismarine_rod',
+		[
+			'P',
+			'P'
+		],
+		{
+			P: '#gfz:prismarine_shard'
+		}
+	)
+	event.shaped
+	(
+		'apotheosis:inert_trident',
+		[
+			'SSS',
+			' R ',
+			' R '
+		],
+		{
+			S: '#gfz:shell',
+			R: 'upgrade_aquatic:prismarine_rod'
+		}
+	)
+	event.shaped
+	(
+		'apotheosis:inert_trident',
+		[
+			'SSS',
+			' R ',
+			' R '
+		],
+		{
+			S: 'upgrade_aquatic:thrasher_tooth',
+			R: 'upgrade_aquatic:prismarine_rod'
+		}
+	)
+
 	let dragonscales = ['red', 'green', 'bronze', 'gray', 'blue', 'white', 'sapphire', 'silver', 'electric', 'amythest', 'copper', 'black']
 	dragonscales.forEach((color, index) => {
 		event.remove({output: `iceandfire:armor_${color}_helmet`})
@@ -1115,6 +1177,15 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:machine_core').add('refinedstorage:machine_casing')
 
 	event.get('irons_spellbooks:nature_focus').add('farmersdelight:rotten_tomato')
+
+	event.get('gfz:shell').add('twigs:bronzed_seashell')
+	event.get('gfz:shell').add('twigs:opaline_seashell')
+	event.get('gfz:shell').add('twigs:roseate_seashell')
+	event.get('gfz:shell').add('twigs:tangerine_seashell')
+	event.get('gfz:shell').add('minecraft:nautilus_shell')
+
+	event.get('gfz:prismarine_shard').add('minecraft:prismarine_shard')
+	event.get('gfz:prismarine_shard').add('philipsruins:frozen_prismarine_shard')
 })
 
 ServerEvents.entityLootTables(event => {
@@ -1130,9 +1201,13 @@ ServerEvents.entityLootTables(event => {
 	event.modifyEntity('minecraft:zombie', table => {
 		table.addPool(pool => {
 			pool.rolls = [0, 2]
-			pool.addItem('minecraft:feather', 3, [0, 2])
+			pool.addItem('minecraft:feather', 10, [0, 2])
 			pool.addItem('minecraft:iron_nugget', 2, [0, 1])
-			pool.addItem('irons_spellbooks:common_ink', 1, [0, 1])
+			pool.addItem('irons_spellbooks:common_ink', 3, [0, 1])
+			pool.addItem('quark:clear_shard', 3, [0, 4])
+			pool.addItem('quark:dirty_shard', 3, [0, 4])
+			pool.addItem('minecraft:stick', 10, [0, 1])
+			pool.addItem('minecraft:emerald', 1, [0, 1])
 		})
 	})
 
@@ -1154,7 +1229,15 @@ ServerEvents.entityLootTables(event => {
 
 	event.modifyEntity('minecraft:drowned', table => {
 		table.addPool(pool => {
-			pool.addItem('create:copper_nugget').randomChance(0.2)
+			pool.rolls = [0, 2]
+			pool.addItem('create:copper_nugget', 1, [0, 2])
+			pool.addItem('twigs:bronzed_seashell', 1, [0, 1])
+			pool.addItem('twigs:opaline_seashell', 1, [0, 1])
+			pool.addItem('twigs:roseate_seashell', 1, [0, 1])
+			pool.addItem('twigs:tangerine_seashell', 1, [0, 1])
+			pool.addItem('upgrade_aquatic:driftwood_log', 1, [0, 1])
+			pool.addItem('minecraft:leather', 1, 1)
+			pool.addItem('minecraft:stick', 1, 1)
 		})
 	})
 
