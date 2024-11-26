@@ -267,12 +267,28 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	let metalcolors = ['white', 'blue', 'black', 'red', 'green', 'brown', 'gray']
-	let dustyMetals = ['silver', 'copper', 'lead', 'iron', 'nickel', 'gold', 'tin']
-	dustyMetals.forEach((metal, index) =>
+	const grindableMetals = new Map([
+		['silver', 'white'],
+		['copper', 'blue'],
+		['lead', 'black'],
+		['iron', 'red'],
+		['nickel', 'green'],
+		['gold', 'brown'],
+		['tin', 'gray'],
+		['constantan', 'green'],
+		['invar', 'cyan'],
+		['enderium', 'purple'],
+		['lumium', 'yellow'],
+		['signalum', 'purple'],
+		['bronze', 'blue'],
+		['electrum', 'yellow'],
+	]);
+
+	grindableMetals.forEach((dyeColor, metal) =>
 	{
 		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:ingots/${metal}`])
-		event.shapeless(`minecraft:${metalcolors[index]}_dye`, [`#forge:dusts/${metal}`])
+		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:plates/${metal}`])
+		event.shapeless(`minecraft:${dyeColor}_dye`, [`#forge:dusts/${metal}`])
 	})
 
 	//#region Apotheosis Materials
@@ -1125,6 +1141,7 @@ ServerEvents.recipes(event => {
 	event.remove({id: "irons_spellbooks:poisonous_potato"})
 	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'minecraft:potato', '4x minecraft:poisonous_potato')
 	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'farmersdelight:tomato', '4x farmersdelight:rotten_tomato')
+	SurroundXInYToMakeZ('#irons_spellbooks:nature_focus', 'vinery:cherry', '4x vinery:rotten_cherry')
 })
 
 ServerEvents.tags('block', event => {
@@ -1176,7 +1193,11 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:machine_core').add('thermal:machine_frame')
 	event.get('gfz:machine_core').add('refinedstorage:machine_casing')
 
+	event.get('irons_spellbooks:ice_focus').add('thermal:blizz_rod')
+	event.get('irons_spellbooks:lightning_focus').add('thermal:blitz_rod')
 	event.get('irons_spellbooks:nature_focus').add('farmersdelight:rotten_tomato')
+	event.get('irons_spellbooks:nature_focus').add('vinery:rotten_cherry')
+	event.get('irons_spellbooks:nature_focus').add('thermal:basalz_rod')
 
 	event.get('gfz:shell').add('twigs:bronzed_seashell')
 	event.get('gfz:shell').add('twigs:opaline_seashell')
@@ -1189,6 +1210,9 @@ ServerEvents.tags('item', event => {
 })
 
 ServerEvents.entityLootTables(event => {
+	// These are set here instead of via LootJS because this adds them to JEI.
+	// If I move the modpack to a later MC version, not as much of a problem.
+
 	event.modifyEntity('rottencreatures:frostbitten', table => {
 		table.addPool(pool => {
 			pool.addItem('iceandfire:dread_key').randomChance(0.01)
