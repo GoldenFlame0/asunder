@@ -291,6 +291,8 @@ ServerEvents.recipes(event => {
 		event.shapeless(`minecraft:${dyeColor}_dye`, [`#forge:dusts/${metal}`])
 	})
 
+	event.recipes.createPressing('createaddition:zinc_sheet', ['#forge:ingots/zinc'])
+
 	//#region Apotheosis Materials
 	event.shapeless('2x apotheosis:common_material', ['apotheosis:uncommon_material'])
 	event.shapeless('2x apotheosis:uncommon_material', ['apotheosis:rare_material'])
