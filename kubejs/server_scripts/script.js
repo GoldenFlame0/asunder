@@ -1195,6 +1195,8 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:machine_core').add('thermal:machine_frame')
 	event.get('gfz:machine_core').add('refinedstorage:machine_casing')
 
+	event.get('irons_spellbooks:blood_focus').add('alexsmobs:blood_sac')
+	event.get('irons_spellbooks:blood_focus').add('alexsmobs:mosquito_proboscis')
 	event.get('irons_spellbooks:ice_focus').add('thermal:blizz_rod')
 	event.get('irons_spellbooks:lightning_focus').add('thermal:blitz_rod')
 	event.get('irons_spellbooks:nature_focus').add('farmersdelight:rotten_tomato')
