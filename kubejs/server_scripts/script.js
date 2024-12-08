@@ -30,6 +30,11 @@ ServerEvents.recipes(event => {
 	event.smoking('minecraft:leather', 'minecraft:rotten_flesh')
 	event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh')
 
+	// Add some uses for commonly dropped stuff
+	event.shapeless('minecraft:paper', ['gravestone:obituary'])
+	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
+	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
+
 	event.remove({id: 'immersive_weathering:ash_layer_block'})
 	event.shapeless('immersive_weathering:ash_layer_block', ['immersive_weathering:soot', 'immersive_weathering:soot'])
 	event.shapeless('6x immersive_weathering:ash_layer_block', ['#gfz:ash_block', '#gfz:ash_block', '#gfz:ash_block'])
@@ -267,6 +272,7 @@ ServerEvents.recipes(event => {
 		}
 	)
 
+	//#region Metals
 	const grindableMetals = new Map([
 		['silver', 'white'],
 		['copper', 'blue'],
@@ -291,23 +297,13 @@ ServerEvents.recipes(event => {
 		event.shapeless(`minecraft:${dyeColor}_dye`, [`#forge:dusts/${metal}`])
 	})
 
-	event.recipes.createPressing('createaddition:zinc_sheet', ['#forge:ingots/zinc'])
-
-	//#region Apotheosis Materials
-	event.shapeless('2x apotheosis:common_material', ['apotheosis:uncommon_material'])
-	event.shapeless('2x apotheosis:uncommon_material', ['apotheosis:rare_material'])
-	event.shapeless('2x apotheosis:rare_material', ['apotheosis:epic_material'])
-	event.shapeless('2x apotheosis:epic_material', ['apotheosis:mythic_material'])
-
-	event.recipes.createCrushing('apotheosis:gem_dust', ['apotheosis:gem'])
-	event.recipes.createMilling('apotheosis:gem_dust', ['apotheosis:gem'])
-	//#endregion
-
 	event.recipes.createMixing('1x create_dd:bronze_ingot',
-	[
-		'2x #forge:ingots/bronze',
-		'4x #forge:nuggets/zinc'
-	]).superheated()
+		[
+			'2x #forge:ingots/bronze',
+			'4x #forge:nuggets/zinc'
+		]).superheated()
+
+	event.recipes.createPressing('createaddition:zinc_sheet', ['#forge:ingots/zinc'])
 
 	//#region nickel
 	event.remove({id: 'savage_and_ravage:blast_proof_plating'})
@@ -403,6 +399,19 @@ ServerEvents.recipes(event => {
 	)
 
 	//#endregion
+	
+	//#endregion
+
+	//#region Apotheosis Materials
+	event.shapeless('2x apotheosis:common_material', ['apotheosis:uncommon_material'])
+	event.shapeless('2x apotheosis:uncommon_material', ['apotheosis:rare_material'])
+	event.shapeless('2x apotheosis:rare_material', ['apotheosis:epic_material'])
+	event.shapeless('2x apotheosis:epic_material', ['apotheosis:mythic_material'])
+
+	event.recipes.createCrushing('apotheosis:gem_dust', ['apotheosis:gem'])
+	event.recipes.createMilling('apotheosis:gem_dust', ['apotheosis:gem'])
+	//#endregion
+
 
 	event.remove({output: 'iceandfire:dragon_flute'})
 	event.remove({output: 'iceandfire:siren_flute'})
@@ -501,16 +510,6 @@ ServerEvents.recipes(event => {
 	event.campfireCooking('minecraft:dirt', 'immersive_weathering:permafrost')
 
 	//#endregion
-
-	event.remove({output: 'create_dd:spectral_ruby'})
-	event.recipes.createMixing(
-		'create_dd:spectral_ruby',
-		[
-			'#quark:corundum', '#quark:corundum', '#quark:corundum',
-			'#quark:corundum', '#forge:dusts/glowstone', '#quark:corundum',
-			'#quark:corundum', '#quark:corundum', '#quark:corundum'
-		]
-	).heated()
 
 	let corundums = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'white', 'black']
 	corundums.forEach((colour) => 
@@ -973,6 +972,18 @@ ServerEvents.recipes(event => {
 			R: '#forge:ingots/cast_iron'
 		}
 	)
+	event.shaped('thermal:machine_frame',
+		[
+			'QGQ',
+			'GCG',
+			'RGR'
+		], {
+			Q: 'refinedstorage:quartz_enriched_iron',
+			G: '#forge:glass',
+			C: '#forge:gears/tin',
+			R: '#forge:ingots/steel'
+		}
+	)
 	event.shaped('2x thermal:machine_frame',
 		[
 			'QGQ',
@@ -983,6 +994,18 @@ ServerEvents.recipes(event => {
 			G: '#forge:glass',
 			C: '#forge:gears/constantan',
 			R: '#forge:ingots/cast_iron'
+		}
+	)
+	event.shaped('2x thermal:machine_frame',
+		[
+			'QGQ',
+			'GCG',
+			'RGR'
+		], {
+			Q: 'refinedstorage:quartz_enriched_iron',
+			G: '#forge:glass',
+			C: '#forge:gears/constantan',
+			R: '#forge:ingots/steel'
 		}
 	)
 	event.shapeless('thermal:machine_frame', ['#gfz:machine_core'])
@@ -1026,11 +1049,6 @@ ServerEvents.recipes(event => {
 	// #endregion
 
 	event.recipes.createCutting('4x create:shaft', ['#forge:rods/andesite'])
-
-	// Add some uses for commonly dropped stuff
-	event.shapeless('minecraft:paper', ['gravestone:obituary'])
-	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
-	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
 
     // #region progression nudges
 	// Angel ring time
