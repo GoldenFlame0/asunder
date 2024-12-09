@@ -2,7 +2,10 @@
 
 console.info('Hello, World! (You will see this line every time server resources reload)')
 
-let wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
+// In the ancient order.
+const wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
+// Legendary instead of mythic because Iron's Spellbooks inks.
+const rarities = ['common', 'uncommon', 'rare', 'epic', 'legendary']
 
 ServerEvents.recipes(event => {
 	function SurroundXInYToMakeZ (inner, outer, result)
@@ -411,7 +414,77 @@ ServerEvents.recipes(event => {
 	event.recipes.createCrushing('apotheosis:gem_dust', ['apotheosis:gem'])
 	event.recipes.createMilling('apotheosis:gem_dust', ['apotheosis:gem'])
 	//#endregion
+	//#region Iron's Spellbooks Inks
 
+	// Create Wizardry does a lot, but I don't like their ink recipes.
+	rarities.forEach((rarity, index) =>
+	{
+		event.remove({id: `create_wizardry:${rarity}_ink_recipe`})
+		event.remove({id: `create_wizardry:${rarity}_ink_liquid_recipe_alt`})
+		event.remove({id: `create_wizardry:${rarity}_ink_liquid_recipe`})
+		event.remove({id: `create_wizardry:create_ec_${rarity}_ink_recipe`})
+
+		// lol, lmao
+		event.recipes.thermal.bottler(`irons_spellbooks:${rarity}_ink`,
+			[
+				'minecraft:glass_bottle',
+				(Fluid.of(`create_wizardry:${rarity}_ink`, 250))
+			]
+		)
+
+		// There's no "-1 material" so skip over common mats to handle later.
+		// Also this is how you do continue statements in this context, apparently.
+		if (index < 1) return;
+
+		event.recipes.createMixing
+		(
+			(Fluid.of(`create_wizardry:${rarity}_ink`, 250)),
+			[
+				(Fluid.of(`create_wizardry:${rarities[index-1]}_ink`, 1000)),
+				`#gfz:${rarity}_material`
+			]
+		)
+		// Mythic/Legendary naming difference throws a spanner in the works.
+		if (index < 4)
+		{
+			event.recipes.createMixing
+			(
+				`apotheosis:${rarity}_material`,
+				[
+					(Fluid.of(`create_wizardry:${rarity}_ink`, 1000)),
+					`#gfz:${rarities[index-1]}_material`
+				]
+			).heated()
+		}
+	})
+	// Needs different handling (again, naming differences), so I'll take the opportunity to make that worth something.
+	event.recipes.createMixing
+	(
+		'apotheosis:mythic_material',
+		[
+			(Fluid.of(`create_wizardry:legendary_ink`, 1000)),
+			'#gfz:epic_material',
+			'minecraft:popped_chorus_fruit'
+		]
+	).superheated()
+	// Now that that's out of the way; integration with create enchantment industry
+	event.recipes.createMixing
+	(
+		(Fluid.of('create_wizardry:common_ink', 250)),
+		[
+			(Fluid.of(`create_enchantment_industry:ink`, 1000)),
+			`#gfz:common_material`
+		]
+	)
+	event.recipes.createMixing
+	(
+		'apotheosis:common_material',
+		[
+			(Fluid.of(`create_enchantment_industry:ink`, 1000)),
+			'#forge:nuggets'
+		]
+	)
+	//#endregion
 
 	event.remove({output: 'iceandfire:dragon_flute'})
 	event.remove({output: 'iceandfire:siren_flute'})
@@ -1229,6 +1302,13 @@ ServerEvents.tags('item', event => {
 
 	event.get('gfz:prismarine_shard').add('minecraft:prismarine_shard')
 	event.get('gfz:prismarine_shard').add('philipsruins:frozen_prismarine_shard')
+
+	event.get('gfz:common_material').add('apotheosis:common_material')
+	event.get('gfz:uncommon_material').add('apotheosis:uncommon_material')
+	event.get('gfz:rare_material').add('apotheosis:rare_material')
+	event.get('gfz:epic_material').add('apotheosis:epic_material')
+	// ffs why is this the only place where Apoth and Iron's differs.
+	event.get('gfz:legendary_material').add('apotheosis:mythic_material')
 })
 
 ServerEvents.entityLootTables(event => {
