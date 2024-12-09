@@ -1117,7 +1117,34 @@ ServerEvents.recipes(event => {
 
 	// dunno a better way to get eyes of ender without allowing people to skip chunks of progression
 	event.remove({output: 'minecraft:ender_eye'})
-	event.recipes.thermal.crystallizer('minecraft:ender_eye', [(Fluid.of('thermal:ender', 250)), 'minecraft:blaze_powder'])
+	event.recipes.thermal.crystallizer
+	(
+		(
+			Item.of
+			(
+				'kubejs:slumbering_eye',
+				"{display:{Lore:['[\"\",{\"text\":\"It\\'s cold.\",\"color\":\"#5454FC\"}]'],Name:'[\"\",{\"text\":\"Slumbering Eye\",\"italic\":false,\"color\":\"#5454FC\"}]'},\"quark:RuneAttached\":1b,\"quark:RuneColor\":{Count:1b,id:\"quark:blue_rune\"}}"
+			).enchant('unusualend:everlasting', 1)
+		),
+		[
+			(Fluid.of('thermal:ender', 250)),
+			'#gfz:rare_material'
+		]
+	)
+	event.recipes.createMixing
+	(
+		(
+			Item.of
+			(
+				'minecraft:ender_eye',
+				"{display:{Lore:['[\"\",{\"text\":\"You feel it pull towards... home.\"}]'],Name:'[\"\",{\"text\":\"Eye of Ender\",\"italic\":false}]'},\"quark:RuneAttached\":1b,\"quark:RuneColor\":{Count:1b,id:\"quark:light_gray_rune\"}}"
+			).enchant('unusualend:everlasting', 1)
+		),
+		[
+			'kubejs:slumbering_eye',
+			'minecraft:blaze_powder'
+		]
+	).superheated()
 	event.recipes.thermal.centrifuge(['minecraft:ender_pearl', 'minecraft:blaze_powder'], 'minecraft:ender_eye')
 	// #endregion
 
@@ -1138,7 +1165,13 @@ ServerEvents.recipes(event => {
 
 	event.shaped
 	(
-		Item.of('angelring:angel_ring', "{display:{Lore:['[\"\",{\"text\":\"It hums with the power of divinity.\",\"color\":\"#ea6f14\"}]'],Name:'[\"\",{\"text\":\"Angel Ring\",\"italic\":false,\"color\":\"#ea6f14\"}]'}}"),
+		(
+			Item.of
+			(
+				'angelring:angel_ring',
+				"{display:{Lore:['[\"\",{\"text\":\"It hums with the power of divinity.\",\"color\":\"#ea6f14\"}]'],Name:'[\"\",{\"text\":\"Angel Ring\",\"italic\":false,\"color\":\"#ea6f14\"}]'},\"quark:RuneAttached\":1b,\"quark:RuneColor\":{Count:1b,id:\"quark:orange_rune\"}}"
+			).enchant('unusualend:everlasting', 1)
+		),
 		[
 			' V ',
 			'DBD',
