@@ -1395,7 +1395,7 @@ ServerEvents.entityLootTables(event => {
 			pool.rolls = [0, 2]
 			pool.addItem('minecraft:feather', 10, [0, 2])
 			pool.addItem('minecraft:iron_nugget', 2, [0, 1])
-			pool.addItem('irons_spellbooks:common_ink', 3, [0, 1])
+			pool.addItem('apotheosis:common_material', 3, [0, 1])
 			pool.addItem('quark:clear_shard', 3, [0, 4])
 			pool.addItem('quark:dirty_shard', 3, [0, 4])
 			pool.addItem('minecraft:stick', 10, [0, 1])
@@ -1409,7 +1409,7 @@ ServerEvents.entityLootTables(event => {
 			pool.rolls = [0, 2]
 			pool.addItem('minecraft:sand', 2, [1, 2])
 			pool.addItem('minecraft:red_sand', 2, [1, 2])
-			pool.addItem('irons_spellbooks:common_ink', 1, [0, 1])
+			pool.addItem('apotheosis:common_material', 1, [0, 1])
 		})
 	})
 
@@ -1442,6 +1442,15 @@ ServerEvents.entityLootTables(event => {
 	event.modifyEntity('minecraft:zoglin', table => {
 		table.addPool(pool => {
 			pool.addItem('infernalexp:raw_hogchop').randomChance(0.9)
+		})
+	})
+
+	event.modifyEntity('irons_spellbooks:citadel_keeper', table => {
+		table.addPool(pool => {
+			pool.rolls = [0, 2]
+			pool.addItem('apotheosis:common_material', 8, [0, 2])
+			pool.addItem('apotheosis:uncommon_material', 4, [0, 2])
+			pool.addItem('apotheosis:rare_material', 1, [0, 2])
 		})
 	})
 })

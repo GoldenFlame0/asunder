@@ -1,0 +1,11 @@
+{
+    "title": {
+      "text": "Asunder Tip",
+      "bold": true,
+      "underlined": true,
+      "color": "red"
+    },
+    "tip": {
+      "text": "You can harvest materials from ancient Affix items to reforge ones you make yourself or to make spellcasting ink."
+    }
+  }
