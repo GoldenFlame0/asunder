@@ -9,6 +9,10 @@ const rarities = ['common', 'uncommon', 'rare', 'epic', 'legendary']
 
 ServerEvents.recipes(event => {
 	// #region Functions
+	// Because all of these use event, it doesn't make much sense to move it out of this block.
+	// Unless there's some JS optimisation thing I don't know about...
+
+	// Comes up more often than you think.
 	function SurroundXInYToMakeZ (inner, outer, result)
 	{
 		event.shaped(result,
@@ -23,11 +27,14 @@ ServerEvents.recipes(event => {
 			}
 		)
 	}
+
+	// Add a quick way to swap between two very similar items.
 	function AddReflexive(input1, input2)
 	{
 		event.shapeless(input1, [input2])
 		event.shapeless(input2, [input1])
 	}
+
 	// #endregion
 
 	// -----------------------------------------------------
@@ -35,12 +42,21 @@ ServerEvents.recipes(event => {
 	// First stage of the game, before the player gets iron.
 	// #region EARLY STORY
 
+	// Wood tools are pretty useless given the amount of alternatives you have to craft stone tools.
+	// It's also a "oh shit we're playing modded" moment that forces them out of autopilot.
+	event.remove({id: 'minecraft:wooden_axe'})
+	event.remove({id: 'minecraft:wooden_hoe'})
+	event.remove({id: 'minecraft:wooden_pickaxe'})
+	event.remove({id: 'minecraft:wooden_shovel'})
+	event.remove({id: 'minecraft:wooden_sword'})
+
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
 	event.smoking('minecraft:leather', 'minecraft:rotten_flesh')
 	event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh')
 	
 	// Add some uses for commonly dropped stuff
+	// Also heads are so common now that I don't mind how easy it is to make these.
 	event.shapeless('minecraft:paper', ['gravestone:obituary'])
 	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
 	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
@@ -50,8 +66,7 @@ ServerEvents.recipes(event => {
 	event.shapeless('immersive_weathering:ash_layer_block', ['immersive_weathering:soot', 'immersive_weathering:soot'])
 	event.shapeless('6x immersive_weathering:ash_layer_block', ['#gfz:ash_block', '#gfz:ash_block', '#gfz:ash_block'])
 	
-	// Pebble crafting recipie
-	// Funnily enough, pebbles mean you can skip wood tier completely.
+	// Pebble crafting recipe
 	event.shapeless('4x twigs:pebble', ['#forge:cobblestone'])
 
 	event.replaceInput(
@@ -330,6 +345,35 @@ ServerEvents.recipes(event => {
 			N: 'minecraft:netherite_ingot'
 		})
 	})
+
+	event.remove({id: 'farmersdelight:skillet'})
+	event.remove({id: 'farmersdelight:cooking_pot'})
+	event.shaped('farmersdelight:skillet',
+		[
+			' II',
+			' II',
+			'C  '
+		],
+		{
+			I: '#gfz:upgraded_iron',
+			C: '#supplementaries:throwable_bricks'
+		}
+	)
+
+	event.shaped('farmersdelight:cooking_pot',
+		[
+			'CSC',
+			'IBI',
+			'III'
+		],
+		{
+			I: '#gfz:upgraded_iron',
+			C: '#supplementaries:throwable_bricks',
+			S: '#forge:rods/wooden',
+			B: 'minecraft:water_bucket'
+		}
+
+	).replaceIngredient('minecraft:water_bucket', 'minecraft:bucket')
 
 	// #endregion
 	
@@ -888,18 +932,6 @@ ServerEvents.recipes(event => {
 
 	// #endregion
 
-	event.replaceInput(
-		{output: 'farmersdelight:skillet'},
-		'#forge:ingots/iron',
-		'#forge:ingots/cast_iron'
-	)
-
-	event.replaceInput(
-		{output: 'farmersdelight:cooking_pot'},
-		'#forge:ingots/iron',
-		'#forge:ingots/cast_iron'
-	)
-
 	// #region Spud's Revised Recipies
 	// https://modrinth.com/datapack/spuds-revised-recipes
 	event.remove({id: 'minecraft:lodestone'})
@@ -1075,19 +1107,7 @@ ServerEvents.recipes(event => {
 			Q: 'refinedstorage:quartz_enriched_iron',
 			G: '#forge:glass',
 			C: '#forge:gears/tin',
-			R: '#forge:ingots/cast_iron'
-		}
-	)
-	event.shaped('thermal:machine_frame',
-		[
-			'QGQ',
-			'GCG',
-			'RGR'
-		], {
-			Q: 'refinedstorage:quartz_enriched_iron',
-			G: '#forge:glass',
-			C: '#forge:gears/tin',
-			R: '#forge:ingots/steel'
+			R: '#gfz:upgraded_iron'
 		}
 	)
 	event.shaped('2x thermal:machine_frame',
@@ -1099,23 +1119,10 @@ ServerEvents.recipes(event => {
 			Q: 'refinedstorage:quartz_enriched_iron',
 			G: '#forge:glass',
 			C: '#forge:gears/constantan',
-			R: '#forge:ingots/cast_iron'
+			R: '#gfz:upgraded_iron'
 		}
 	)
-	event.shaped('2x thermal:machine_frame',
-		[
-			'QGQ',
-			'GCG',
-			'RGR'
-		], {
-			Q: 'refinedstorage:quartz_enriched_iron',
-			G: '#forge:glass',
-			C: '#forge:gears/constantan',
-			R: '#forge:ingots/steel'
-		}
-	)
-	event.shapeless('thermal:machine_frame', ['#gfz:machine_core'])
-	event.shapeless('refinedstorage:machine_casing', ['#gfz:machine_core'])
+	AddReflexive('thermal:machine_frame', 'refinedstorage:machine_casing')
 
 	// Integrate recipies
 	event.remove({output: 'create:gantry_carriage'})
@@ -1375,6 +1382,13 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:epic_material').add('apotheosis:epic_material')
 	// ffs why is this the only place where Apoth and Iron's differs.
 	event.get('gfz:legendary_material').add('apotheosis:mythic_material')
+
+	event.get('quark:stone_tool_materials').add('twigs:rocky_dirt')
+	event.get('quark:stone_tool_materials').add('twigs:pebble')
+	event.get('philipsruins:bone_chunk').add('twigs:pebble')
+
+	event.get('gfz:upgraded_iron').add('createbigcannons:cast_iron_ingot')
+	event.get('gfz:upgraded_iron').add('thermal:steel_ingot')
 })
 
 ServerEvents.entityLootTables(event => {
