@@ -8,6 +8,7 @@ const wool_colours = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lim
 const rarities = ['common', 'uncommon', 'rare', 'epic', 'legendary']
 
 ServerEvents.recipes(event => {
+	// #region Functions
 	function SurroundXInYToMakeZ (inner, outer, result)
 	{
 		event.shaped(result,
@@ -27,27 +28,80 @@ ServerEvents.recipes(event => {
 		event.shapeless(input1, [input2])
 		event.shapeless(input2, [input1])
 	}
+	// #endregion
+
+	// -----------------------------------------------------
+	// Early story/game - first night type stuff.
+	// First stage of the game, before the player gets iron.
+	// #region EARLY STORY
 
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
 	event.smoking('minecraft:leather', 'minecraft:rotten_flesh')
 	event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh')
-
+	
 	// Add some uses for commonly dropped stuff
 	event.shapeless('minecraft:paper', ['gravestone:obituary'])
 	event.shapeless('minecraft:zombie_head', ['minecraft:player_head'])
 	event.smelting('minecraft:skeleton_skull', 'minecraft:player_head')
-
+	
+	// Unify ashes.
 	event.remove({id: 'immersive_weathering:ash_layer_block'})
 	event.shapeless('immersive_weathering:ash_layer_block', ['immersive_weathering:soot', 'immersive_weathering:soot'])
 	event.shapeless('6x immersive_weathering:ash_layer_block', ['#gfz:ash_block', '#gfz:ash_block', '#gfz:ash_block'])
-
+	
+	// Pebble crafting recipie
+	// Funnily enough, pebbles mean you can skip wood tier completely.
 	event.shapeless('4x twigs:pebble', ['#forge:cobblestone'])
+
+	event.replaceInput(
+		{output: 'supplementaries:soap'},
+		'minecraft:porkchop',
+		'#immersive_weathering:wax'
+	)
+	event.replaceInput(
+		{output: 'iceandfire:earplugs'},
+		'#minecraft:planks',
+		'#immersive_weathering:wax'
+	)
+
+	// #endregion
+
+	// -----------------------------------------------------
+	// Mid story/midgame.
+	// The player now has access to iron and Create machines.
+	// They're probably exploring the world, taking out dungeons and Mowzie's bosses.
+	// #region MID STORY
 
 	event.recipes.createMixing('minecraft:slime_ball', [
 		'crittersandcompanions:sea_bunny_slime_block'
 	])
 
+	const grindableMetals = new Map([
+		['silver', 'white'],
+		['copper', 'blue'],
+		['lead', 'black'],
+		['iron', 'red'],
+		['nickel', 'green'],
+		['gold', 'brown'],
+		['tin', 'gray'],
+		['constantan', 'green'],
+		['invar', 'cyan'],
+		['enderium', 'purple'],
+		['lumium', 'yellow'],
+		['signalum', 'purple'],
+		['bronze', 'blue'],
+		['electrum', 'yellow'],
+	]);
+
+	grindableMetals.forEach((dyeColor, metal) =>
+	{
+		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:ingots/${metal}`])
+		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:plates/${metal}`])
+		event.shapeless(`minecraft:${dyeColor}_dye`, [`#forge:dusts/${metal}`])
+	})
+
+	// #region Update Aquatic/Upgrade Aquatic
 	event.remove({output: 'minecraft:conduit'})
 	event.shaped
 	(
@@ -62,7 +116,6 @@ ServerEvents.recipes(event => {
 			H: 'minecraft:heart_of_the_sea'
 		}
 	)
-
 	event.remove({id: 'upgrade_aquatic:trident'})
 	event.remove({id: 'apotheosis:inert_trident'})
 	event.remove({id: 'upgrade_aquatic:prismarine_rod'})
@@ -103,6 +156,139 @@ ServerEvents.recipes(event => {
 			R: 'upgrade_aquatic:prismarine_rod'
 		}
 	)
+	// #endregion
+
+	event.remove({id: 'savage_and_ravage:gloomy_tiles'})
+	event.shaped(
+		'8x savage_and_ravage:gloomy_tiles',
+		[
+			'BBB',
+			'BSB',
+			'BBB'
+		],
+		{
+			B: '#minecraft:stone_bricks',
+			S: '#gfz:spooky'
+		}
+	)
+	
+	event.recipes.createPressing('createaddition:zinc_sheet', ['#forge:ingots/zinc'])
+
+	//#region nickel
+		event.remove({id: 'savage_and_ravage:blast_proof_plating'})
+		event.shapeless('savage_and_ravage:blast_proof_plating', 
+		[
+			'#forge:obsidian', '#forge:obsidian',
+			'#forge:ingots/nickel', '#forge:ingots/nickel', '#forge:ingots/nickel'
+		])
+		event.shapeless('savage_and_ravage:blast_proof_plating', 
+		[
+			'savage_and_ravage:creeper_spores', 'savage_and_ravage:creeper_spores', 'savage_and_ravage:creeper_spores', 
+			'#forge:ingots/nickel', '#forge:ingots/nickel'
+		])
+	
+		event.shaped(
+			'minecraft:clock', 
+			[
+				'I',
+				'R',
+				'I'
+			], {
+				I: '#forge:ingots/invar',
+				R: '#forge:dusts/redstone'
+			}
+		)
+		event.shaped(
+			'minecraft:compass', 
+			[
+				'IRI'
+			], {
+				I: '#forge:ingots/invar',
+				R: '#forge:dusts/redstone'
+			}
+		)
+		event.shapeless(
+			'sereneseasons:calendar',
+			[
+				'minecraft:paper', '#forge:ingots/invar'
+			]
+		)
+	
+		event.remove({id: 'explorerscompass:explorers_compass'})
+		event.remove({id: 'naturescompass:natures_compass'})
+		event.shaped(
+			'thermal:invar_gear',
+			[
+				'NIN',
+				'IRI',
+				'NIN'
+			], {
+				I: '#forge:ingots/invar',
+				N: '#forge:nuggets/invar',
+				R: '#forge:dusts/redstone'
+			}
+		)
+	
+		event.shapeless(
+			'explorerscompass:explorerscompass',
+			[
+				'minecraft:spawner',
+				'minecraft:nether_bricks',
+				'minecraft:ender_eye',
+				'#forge:gears/invar',
+				'minecraft:compass',
+				'#forge:gears/invar',
+				'minecraft:sea_lantern',
+				'minecraft:gilded_blackstone',
+				'minecraft:end_rod'
+			]
+		)
+		event.shapeless(
+			'naturescompass:naturescompass',
+			[
+				'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass',
+				'#forge:gears/invar',
+				'minecraft:compass',
+				'#forge:gears/invar',
+				'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass'
+			]
+		)
+	
+		event.remove({output: 'create:electron_tube'})
+		event.shaped(
+			'2x create:electron_tube',
+			[
+				'R',
+				'C'
+			],
+			{
+				R: 'create:polished_rose_quartz',
+				C: '#forge:plates/constantan'
+			}
+		)
+	
+	//#endregion
+
+	// #endregion
+	
+	// -----------------------------------------------------
+	// Lategame/latestory/predragon
+	// The player now has access to the Aether and Forge Energy.
+	// They probably have some good spells and equipment, and a decent base.
+	// #region LATE STORY
+
+	// Basically force the player to either start on Forge Energy or have a working blaze burner setup.
+	event.remove({id: 'minecraft:netherite_ingot'})
+	event.recipes.createMixing('minecraft:netherite_ingot', [
+		'minecraft:netherite_scrap',
+		'minecraft:netherite_scrap',
+		'minecraft:netherite_scrap',
+		'minecraft:netherite_scrap',
+		'#forge:ingots/gold',
+		'#forge:ingots/gold',
+		'#forge:ingots/gold',
+		'#forge:ingots/gold'
+	]).superheated()
 
 	let dragonscales = ['red', 'green', 'bronze', 'gray', 'blue', 'white', 'sapphire', 'silver', 'electric', 'amythest', 'copper', 'black']
 	dragonscales.forEach((color, index) => {
@@ -145,30 +331,15 @@ ServerEvents.recipes(event => {
 		})
 	})
 
-	event.replaceInput(
-		{output: 'supplementaries:soap'},
-		'minecraft:porkchop',
-		'#immersive_weathering:wax'
-	)
-	event.replaceInput(
-		{output: 'iceandfire:earplugs'},
-		'#minecraft:planks',
-		'#immersive_weathering:wax'
-	)
+	// #endregion
+	
+	// -----------------------------------------------------
+	// Poststory/postgame
+	// The player has killed the Ender Dragon
+	// The player now is ready to start some big builds.
+	// #region POST STORY
 
-	//#region Netherite Forging
-	event.remove({id: 'minecraft:netherite_ingot'})
-	event.recipes.createMixing('minecraft:netherite_ingot', [
-		'minecraft:netherite_scrap',
-		'minecraft:netherite_scrap',
-		'minecraft:netherite_scrap',
-		'minecraft:netherite_scrap',
-		'#forge:ingots/gold',
-		'#forge:ingots/gold',
-		'#forge:ingots/gold',
-		'#forge:ingots/gold'
-	]).superheated()
-
+	//#region Upgraded Netherite
 	event.remove({id: 'upgradednetherite:gold_essence'})
 	event.recipes.createMixing('upgradednetherite:gold_essence',
 	[
@@ -247,19 +418,6 @@ ServerEvents.recipes(event => {
 		'#forge:heart'
 	])
 	//#endregion
-	event.remove({id: 'savage_and_ravage:gloomy_tiles'})
-	event.shaped(
-		'8x savage_and_ravage:gloomy_tiles',
-		[
-			'BBB',
-			'BSB',
-			'BBB'
-		],
-		{
-			B: '#minecraft:stone_bricks',
-			S: '#gfz:spooky'
-		}
-	)
 
 	event.remove({output: 'waystones:warp_stone'})
 	event.shaped(
@@ -275,135 +433,10 @@ ServerEvents.recipes(event => {
 		}
 	)
 
-	//#region Metals
-	const grindableMetals = new Map([
-		['silver', 'white'],
-		['copper', 'blue'],
-		['lead', 'black'],
-		['iron', 'red'],
-		['nickel', 'green'],
-		['gold', 'brown'],
-		['tin', 'gray'],
-		['constantan', 'green'],
-		['invar', 'cyan'],
-		['enderium', 'purple'],
-		['lumium', 'yellow'],
-		['signalum', 'purple'],
-		['bronze', 'blue'],
-		['electrum', 'yellow'],
-	]);
+	// #endregion
 
-	grindableMetals.forEach((dyeColor, metal) =>
-	{
-		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:ingots/${metal}`])
-		event.recipes.createMilling(`thermal:${metal}_dust`, [`#forge:plates/${metal}`])
-		event.shapeless(`minecraft:${dyeColor}_dye`, [`#forge:dusts/${metal}`])
-	})
 
-	event.recipes.createMixing('1x create_dd:bronze_ingot',
-		[
-			'2x #forge:ingots/bronze',
-			'4x #forge:nuggets/zinc'
-		]).superheated()
-
-	event.recipes.createPressing('createaddition:zinc_sheet', ['#forge:ingots/zinc'])
-
-	//#region nickel
-	event.remove({id: 'savage_and_ravage:blast_proof_plating'})
-	event.shapeless('savage_and_ravage:blast_proof_plating', 
-	[
-		'#forge:obsidian', '#forge:obsidian',
-		'#forge:ingots/nickel', '#forge:ingots/nickel', '#forge:ingots/nickel'
-	])
-	event.shapeless('savage_and_ravage:blast_proof_plating', 
-	[
-		'savage_and_ravage:creeper_spores', 'savage_and_ravage:creeper_spores', 'savage_and_ravage:creeper_spores', 
-		'#forge:ingots/nickel', '#forge:ingots/nickel'
-	])
-
-	event.shaped(
-		'minecraft:clock', 
-		[
-			'I',
-			'R',
-			'I'
-		], {
-			I: '#forge:ingots/invar',
-			R: '#forge:dusts/redstone'
-		}
-	)
-	event.shaped(
-		'minecraft:compass', 
-		[
-			'IRI'
-		], {
-			I: '#forge:ingots/invar',
-			R: '#forge:dusts/redstone'
-		}
-	)
-	event.shapeless(
-		'sereneseasons:calendar',
-		[
-			'minecraft:paper', '#forge:ingots/invar'
-		]
-	)
-
-	event.remove({id: 'explorerscompass:explorers_compass'})
-	event.remove({id: 'naturescompass:natures_compass'})
-	event.shaped(
-		'thermal:invar_gear',
-		[
-			'NIN',
-			'IRI',
-			'NIN'
-		], {
-			I: '#forge:ingots/invar',
-			N: '#forge:nuggets/invar',
-			R: '#forge:dusts/redstone'
-		}
-	)
-
-	event.shapeless(
-		'explorerscompass:explorerscompass',
-		[
-			'minecraft:spawner',
-			'minecraft:nether_bricks',
-			'minecraft:ender_eye',
-			'#forge:gears/invar',
-			'minecraft:compass',
-			'#forge:gears/invar',
-			'minecraft:sea_lantern',
-			'minecraft:gilded_blackstone',
-			'minecraft:end_rod'
-		]
-	)
-	event.shapeless(
-		'naturescompass:naturescompass',
-		[
-			'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass',
-			'#forge:gears/invar',
-			'minecraft:compass',
-			'#forge:gears/invar',
-			'createaddition:biomass', 'createaddition:biomass', 'createaddition:biomass'
-		]
-	)
-
-	event.remove({output: 'create:electron_tube'})
-	event.shaped(
-		'2x create:electron_tube',
-		[
-			'R',
-			'C'
-		],
-		{
-			R: 'create:polished_rose_quartz',
-			C: '#forge:plates/constantan'
-		}
-	)
-
-	//#endregion
-	
-	//#endregion
+	// Below is unsorted, hopefully I get to it eventually.
 
 	//#region Apotheosis Materials
 	event.shapeless('2x apotheosis:common_material', ['apotheosis:uncommon_material'])
