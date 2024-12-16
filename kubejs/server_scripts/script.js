@@ -35,6 +35,82 @@ ServerEvents.recipes(event => {
 		event.shapeless(input2, [input1])
 	}
 
+	function ReplaceIngotInToolsWithPlate(namespace, material, toolClassOverride)
+	{
+		// https://stackoverflow.com/a/5515349/24345903
+		if (!toolClassOverride)
+		{
+			// Golden needs special handling.
+			// In all other cases, just use "material".
+			toolClassOverride = material;
+		}
+
+		event.remove({id: `${namespace}:${toolClassOverride}_sword`});
+		event.shaped(`${namespace}:${toolClassOverride}_sword`,
+			[
+				'P',
+				'P',
+				'S'
+			],
+			{
+				P: `#forge:plates/${material}`,
+				S: '#balm:wooden_rods'
+			}
+		);
+		
+		event.remove({id: `${namespace}:${toolClassOverride}_shovel`});
+		event.shaped(`${namespace}:${toolClassOverride}_shovel`,
+			[
+				'P',
+				'S',
+				'S'
+			],
+			{
+				P: `#forge:plates/${material}`,
+				S: '#balm:wooden_rods'
+			}
+		);
+
+		event.remove({id: `${namespace}:${toolClassOverride}_pickaxe`});
+		event.shaped(`${namespace}:${toolClassOverride}_pickaxe`,
+			[
+				'PPP',
+				' S ',
+				' S '
+			],
+			{
+				P: `#forge:plates/${material}`,
+				S: '#balm:wooden_rods'
+			}
+		);
+
+		event.remove({id: `${namespace}:${toolClassOverride}_axe`});
+		event.shaped(`${namespace}:${toolClassOverride}_axe`,
+			[
+				'PP',
+				'PS',
+				' S'
+			],
+			{
+				P: `#forge:plates/${material}`,
+				S: '#balm:wooden_rods'
+			}
+		);
+
+		event.remove({id: `${namespace}:${toolClassOverride}_hoe`});
+		event.shaped(`${namespace}:${toolClassOverride}_hoe`,
+			[
+				'PP',
+				' S',
+				' S'
+			],
+			{
+				P: `#forge:plates/${material}`,
+				S: '#balm:wooden_rods'
+			}
+		);
+	}
+
 	// #endregion
 
 	// -----------------------------------------------------
@@ -49,6 +125,13 @@ ServerEvents.recipes(event => {
 	event.remove({id: 'minecraft:wooden_pickaxe'})
 	event.remove({id: 'minecraft:wooden_shovel'})
 	event.remove({id: 'minecraft:wooden_sword'})
+
+	// Also, force the player to use some sort of machinery to get metal tools.
+	// If they want to bypass it by exploring, power to them.
+	ReplaceIngotInToolsWithPlate("minecraft", "gold", "golden");
+	ReplaceIngotInToolsWithPlate("minecraft", "iron");
+	ReplaceIngotInToolsWithPlate("iceandfire", "silver");
+	ReplaceIngotInToolsWithPlate("iceandfire", "copper");
 
 	// Rotten Flesh to Leather
 	event.smelting('minecraft:leather', 'minecraft:rotten_flesh')
@@ -283,6 +366,12 @@ ServerEvents.recipes(event => {
 		)
 	
 	//#endregion
+
+	// You should be able to get to the nether without mods, but it'll be longer and less worth it.
+	event.remove({id: 'minecraft:flint_and_steel'})
+	// having it pre-damaged seems neat
+	event.shapeless(Item.of('minecraft:flint_and_steel', "{Damage:32,RepairCost:0,display:{Name:'{\"text\":\"Flint and Iron\"}'}}"), ['#forge:rods/iron', 'minecraft:flint'])
+	event.shapeless('minecraft:flint_and_steel', ['#forge:rods/steel', 'minecraft:flint'])
 
 	// #endregion
 	
@@ -1149,11 +1238,6 @@ ServerEvents.recipes(event => {
 
 	// #region Progression pacing changes.
 	// nether first.
-	// you should be able to get there without mods, but it'll be longer and less worth it.
-	event.remove({id: 'minecraft:flint_and_steel'})
-	// having it pre-damaged seems neat
-	event.shapeless(Item.of('minecraft:flint_and_steel', "{Damage:32,RepairCost:0,display:{Name:'{\"text\":\"Flint and Iron\"}'}}"), ['#forge:rods/iron', 'minecraft:flint'])
-	event.shapeless('minecraft:flint_and_steel', ['#forge:rods/steel', 'minecraft:flint'])
 
 	// dunno a better way to get eyes of ender without allowing people to skip chunks of progression
 	event.remove({output: 'minecraft:ender_eye'})
