@@ -1461,8 +1461,11 @@ ServerEvents.tags('item', event => {
 	event.get('gfz:prismarine_shard').add('philipsruins:frozen_prismarine_shard')
 
 	event.get('gfz:common_material').add('apotheosis:common_material')
+	event.get('gfz:common_material').add('simplehats:hatscraps_common')
 	event.get('gfz:uncommon_material').add('apotheosis:uncommon_material')
+	event.get('gfz:uncommon_material').add('simplehats:hatscraps_uncommon')
 	event.get('gfz:rare_material').add('apotheosis:rare_material')
+	event.get('gfz:rare_material').add('simplehats:hatscraps_rare')
 	event.get('gfz:epic_material').add('apotheosis:epic_material')
 	// ffs why is this the only place where Apoth and Iron's differs.
 	event.get('gfz:legendary_material').add('apotheosis:mythic_material')
