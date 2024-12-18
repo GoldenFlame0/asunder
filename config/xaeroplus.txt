@@ -1,3 +1,4 @@
+[XP] Long Waypoint Initials:false
 [XP] WorldMap Baritone Goal Here:false
 [XP] Roof Y Level:250.0
 [XP] Switch to Nether:false
@@ -62,6 +63,7 @@
 [XP] Radar While Dim Switched:true
 [XP] Waystones Sync:true
 [XP] New Chunks Opacity:100.0
+[XP] Hide Invisible Entities:true
 [XP] Show Waypoint Distances:true
 [XP] PortalSkip Detection:false
 [XP] Waypoint ETA:false

@@ -418,7 +418,7 @@ _version = 2
 			# 
 			# Increasing this value will reduce CPU load but may may cause 
 			# LODs to become outdated more frequently or for longer.
-			minTimeBetweenChunkUpdatesInSeconds = 1
+			minTimeBetweenChunkUpdatesInSeconds = 2
 			#
 			# If false LODs will be lit by Minecraft's lighting engine when possible 
 			# and fall back to the DH lighting engine only when necessary. 
