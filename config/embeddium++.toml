@@ -44,7 +44,7 @@
 				#Configure horizontal max distance before cull entities
 				#Value is squared, default was 64^2 (or 64x64)
 				#Range: > 0
-				cullingMaxDistanceX = 4096
+				cullingMaxDistanceX = 5184
 				#Toggles distance culling for entities, doesn't affect monsters culling
 				#Check the options below
 				enable = true
