@@ -1,7 +1,7 @@
 [
     {
         "mob": ["minecraft:phantom"],
-        "persecond": 1,
+        "persecond": 0.6,
         "attempts": 1,
         "conditions": {
             "dimension": "minecraft:the_end"
@@ -9,7 +9,31 @@
     },
     {
         "mob": ["quark:forgotten"],
-        "persecond": 0.1,
+        "persecond": 0.2,
+        "attempts": 1,
+        "conditions": {
+            "dimension": "minecraft:the_end"
+        }
+    },
+    {
+        "mob": ["minecraft:ghast"],
+        "persecond": 0.3,
+        "attempts": 1,
+        "conditions": {
+            "dimension": "minecraft:the_end"
+        }
+    },
+    {
+        "mob": ["aether:whirlwind"],
+        "persecond": 0.3,
+        "attempts": 1,
+        "conditions": {
+            "dimension": "minecraft:the_end"
+        }
+    },
+    {
+        "mob": ["aether:evil_whirlwind"],
+        "persecond": 0.3,
         "attempts": 1,
         "conditions": {
             "dimension": "minecraft:the_end"
