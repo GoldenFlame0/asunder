@@ -1,0 +1,19 @@
+{
+    "name": "Tools",
+    "icon": "minecraft:stone_pickaxe",
+    "category": "patchouli:getting_started",
+    "pages": [
+        "Tools are key to improve your living standards and getting access to better things. To start, you'll need to make some stone tools. Wooden tools are too fragile to be of use. You can make stone tools from flint, sandstone, and pebbles you find on the ground. $(br2)Once you have or find a pickaxe, you can make more using most kinds of stone.",
+        {
+            "type": "patchouli:crafting",
+            "recipe": "minecraft:sandstone",
+            "recipe2": "quark:tweaks/crafting/utility/tools/stone_pickaxe"
+        },
+        "Getting even better tools without looting them from past civilisations will require some machinery. A heavy iron block, if used correctly, could be able to press down iron sheets.$(br2)You can mouse over the Mechanical Press in this window and hold down 'w' to 'ponder' the item, seeing a short video on how it works. Many items from the Create mod have this functionality or a simple 'Hold Shift for Summary'.",
+        {
+            "type": "patchouli:crafting",
+            "recipe": "create:crafting/kinetics/mechanical_press",
+            "recipe2": "minecraft:kjs_iron_pickaxe"
+        }
+    ]
+}

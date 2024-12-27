@@ -1,0 +1,67 @@
+{
+    "name": "Remaining Lineages",
+    "icon": "minecraft:emerald",
+    "category": "patchouli:lore",
+    "pages": [
+        {
+            "type": "patchouli:entity",
+            "entity": "distantfriends:friend",
+            "name": "Minecraftians",
+            "text": "The common ancestor of all lineages, your kind has been reduced to a scarce few."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:villager",
+            "name": "Villagers",
+            "text": "Avid gardeners and eager traders, Villagers are vulnerable to zombification and attacks by bandit Pillagers."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:pillager",
+            "name": "Pillagers",
+            "text": "Villagers turned evil, Pillagers seek to acheive world domination through imprecise methods."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "alexsmobs:underminer",
+            "name": "Dwarves",
+            "text": "Minecraftians who tunneled underground. Their shades still haunt certain places."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:piglin",
+            "name": "Piglin",
+            "text": "Much like Villagers in their eagerness for trade and vulnerability to zombification, but are incredibly racist."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": "irons_spellbooks:armor_pile",
+            "title": "Blaze Progenitors",
+            "text": "An ancient group of Minecraftians that conquered The Nether and were wiped out during the apocalypse. Their structures still remain - patrolled by their withered corpses and their Blaze creations. Among ancient battlefields, piles of armour haunted by their bravest warriors lie dormant."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "aether:valkyrie",
+            "name": "Valkyries",
+            "text": "Ascendant Minecraftians who now only know battle."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": "botania:quartz_elven",
+            "title": "Elves",
+            "text": "One of the few remaining groups of Minecraftians, the Elves were said to be the inventors of magic. They fled during the apocalypse, their sanctuary world of Alfhiem soon becoming their prison."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:enderman",
+            "name": "Endermen",
+            "text": "§kgibberish§r $(playername) §kgibberish§r raqreqentba §kgibberish§r"
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:warden",
+            "name": "Wardens",
+            "text": "§kgibberish§r ascension §kgibberish§r failure §kgibberish§r"
+        }
+    ]
+}

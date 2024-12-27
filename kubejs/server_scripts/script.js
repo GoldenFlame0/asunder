@@ -163,6 +163,9 @@ ServerEvents.recipes(event => {
 		'#immersive_weathering:wax'
 	)
 
+	// Add an easier scroll of revealing recipe.
+	SurroundXInYToMakeZ('#botania:petals', "minecraft:paper", 'irons_rpg_tweaks:identification_scroll')
+
 	// #endregion
 
 	// -----------------------------------------------------

@@ -1,0 +1,19 @@
+{
+    "name": "Dragons",
+    "icon": "iceandfire:dragon_skull_fire",
+    "category": "patchouli:lore",
+    "pages": [
+        "Dragons are the most dangerous mob in the overworld. Bosses must be provoked or summoned, and creatures such as Wardens or Guardians can be avoided. Dragons will find you, attack you, and kill you, because they feel like it.",
+        {
+            "type": "patchouli:entity",
+            "entity": "iceandfire:fire_dragon",
+            "text": "Dragons can be identified by their black nests on the minimap."
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "iceandfire:bestiary",
+            "text": "More information about dragons can be found by finding or crafting a bestiary."
+        },
+        "Some say dragons were first made, not born, and made in the image of something else. This would also explain why they are dying out - they need intervention to procreate."
+    ]
+}

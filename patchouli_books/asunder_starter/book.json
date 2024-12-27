@@ -1,5 +1,7 @@
 {
-    "name": "Asunder Starter Book",
-    "landing_text": "Everything you need to survive in a sundered world",
-    "version": 1
+    "name": "A Pile of Notes",
+    "landing_text": "Everything you need to know to survive.",
+    "version": 1,
+    "creative_tab": "kubejs:kubejs",
+    "use_resource_pack": true
 }

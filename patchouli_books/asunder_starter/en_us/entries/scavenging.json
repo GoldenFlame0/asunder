@@ -1,0 +1,19 @@
+{
+    "name": "Scavenging",
+    "icon": "minecraft:chest",
+    "category": "patchouli:getting_started",
+    "pages": [
+        "You don't need to make everything yourself. Ruins from the past cover these shattered realms, sometimes guarded, sometimes not. You can loot them for items that can give you a head-start. Tools, weapons, and armour will often also have enchantments or affixes on them. The Book of Shadows has more infomation on these 'Affixes'.",
+        {
+            "type": "patchouli:crafting",
+            "recipe": "apotheosis:book",
+            "text": "The Book of Shadows should be part of your starting Akashic Tome, but if you lose it, it's easy to make another."
+        },
+        "Enchantments you find in the wild will be illegible to your eyes. Right clicking an enchanting table with them in your hand will reveal the enchantment. Barring that, you can wear armour to reveal its enchantments (risking any curses), or you can hold a Scroll of Revealing in your cursor and right-click it in your inventory to discover them.",
+        {
+            "type": "patchouli:crafting",
+            "recipe": "irons_rpg_tweaks:identification_scroll",
+            "recipe2": "minecraft:kjs_irons_rpg_tweaks_identification_scroll"
+        }
+    ]
+}

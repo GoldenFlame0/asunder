@@ -1,0 +1,38 @@
+{
+    "name": "The Apocalypse",
+    "icon": "supplementaries:enderman_head",
+    "category": "patchouli:lore",
+    "pages": [
+        "None living, and few dead, understood why the end of the world happened. And nobody has the full story. You probably weren't around for it - you're just another creature surviving in the ruins of people who knew more than you.$(br2)The first thing you know is that only a rare few Minecraftians - such as yourself - still exist (With more on multiplayer servers).",
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:zombie",
+            "name": "Hordes",
+            "text": "The second is that dangerous events, such as a horde of zombies or a blood moon, are a frequent occurence."
+        },
+        {
+            "type": "patchouli:multiblock",
+            "name": "Nether Portal",
+            "multiblock": {
+                "pattern": [
+                    ["OOOO"],
+                    ["O  O"],
+                    ["O  O"],
+                    ["O0 O"],
+                    ["OOOO"]
+                ],
+                "mapping": {
+                    "O": "minecraft:obsidian"
+                },
+                "symmetrical": true
+            },
+            "text": "The third is that it's possible to travel between alternate worlds - the Nether and the Aether being the easiest."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": "minecraft:ender_eye",
+            "title": "Further Realms",
+            "text": "The fourth is that answers lie in the two worlds that are harder or impossible to get to - the worlds of Alfhiem and The End.$(br2)Hover over the Eye of Ender and press 'R' to view the crafting recipe. Information about Alfhiem can eventually be found in the Lexia Botanica."
+        }
+    ]
+}

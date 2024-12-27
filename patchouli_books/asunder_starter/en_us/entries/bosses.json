@@ -1,0 +1,59 @@
+{
+    "name": "Bosses",
+    "icon": "minecraft:nether_star",
+    "category": "patchouli:lore",
+    "pages": [
+        "Bosses are creatures far stronger than the usual hostile mob. They aren't to be confused with Invaders (Apotheosis Bosses) - more information about them can be found in the Book of Shadows.$(br2)They also shouldn't be confused by minibosses like the Elder Guardians, who don't have an on-screen health bar.",
+        {
+            "type": "patchouli:entity",
+            "entity": "mowziesmobs:ferrous_wroughtnaut",
+            "text": "Great golems buried underground."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "mowziesmobs:umvuthi",
+            "text": "God of the Abavunthana."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "mowziesmobs:frostmaw",
+            "text": "A beast of ice and winter."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:wither",
+            "text": "A desecrated effigy to a dead lineage."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "aether:slider",
+            "text": "An automated defence hidden in the sky."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "minecraft:ender_dragon",
+            "text": "§kgibberish§r god §kgibberish§r"
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "aether:valkyrie_queen",
+            "text": "A great leader of a dying people."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "aether:sun_spirit",
+            "text": "A force of stasis and pride."
+        },
+        {
+            "type": "patchouli:entity",
+            "entity": "botania:doppleganger",
+            "text": "§kgibberish§r $(playername) §kgibberish§r"
+        },
+        {
+            "type": "patchouli:entity",
+            "name": "§kgibberish§r",
+            "entity": "alexsmobs:void_worm",
+            "text": "§kgibberish§r SUNDERER §kgibberish§r"
+        }
+    ]
+}
