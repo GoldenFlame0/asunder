@@ -73,6 +73,12 @@
 			yellow_blossom = true
 			red_blossom = true
 
+		[types.leaves_type.beachparty]
+			palm = true
+
+		[types.leaves_type.meadow]
+			pine = true
+
 	[types.wood_type]
 
 		[types.wood_type.createdieselgenerators]
@@ -130,6 +136,16 @@
 
 		[types.wood_type.valhelsia_structures]
 			lapidified_jungle = true
+
+		[types.wood_type.botania]
+			livingwood = true
+			dreamwood = true
+
+		[types.wood_type.beachparty]
+			palm = true
+
+		[types.wood_type.meadow]
+			pine = true
 
 [entries]
 
