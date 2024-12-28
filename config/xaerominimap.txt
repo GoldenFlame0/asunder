@@ -8,7 +8,7 @@ debugEntityVariantIds:false
 radarHideInvisibleEntities:true
 allowInternetAccess:true
 #INGAME SETTINGS (DO NOT EDIT!)
-updateNotification:true
+updateNotification:false
 minimap:true
 caveMaps:2
 caveZoom:1
@@ -64,7 +64,7 @@ zoomOnEnlarged:0
 minimapTextAlign:1
 waypointsMutualEdit:true
 compassLocation:1
-compassDirectionScale:0
+compassDirectionScale:2
 caveMapsDepth:30
 hideWaypointCoordinates:false
 renderAllSets:false
@@ -80,8 +80,8 @@ bossHealthPushBox:1
 potionEffectPushBox:1
 minimapFrame:0
 minimapFrameColor:0
-compassColor:9
-northCompassColor:-1
+compassColor:0
+northCompassColor:12
 displayMultipleWaypointInfo:1
 entityRadar:true
 adjustHeightForCarpetLikeBlocks:true
@@ -90,7 +90,7 @@ waypointDistancePrecision:1
 mainDotSize:2
 partialYTeleportation:true
 deleteReachedDeathpoints:true
-hideMinimapUnderScreen:true
+hideMinimapUnderScreen:false
 hideMinimapUnderF3:true
 manualCaveModeStartAuto:true
 manualCaveModeStart:-1
