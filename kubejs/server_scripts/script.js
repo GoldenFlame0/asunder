@@ -166,6 +166,15 @@ ServerEvents.recipes(event => {
 	// Add an easier scroll of revealing recipe.
 	SurroundXInYToMakeZ('#botania:petals', "minecraft:paper", 'irons_rpg_tweaks:identification_scroll')
 
+	// Add stackable log conversion recipes.
+	event.remove({id: 'minecraft:campfire'})
+	event.shapeless('minecraft:campfire', ['#minecraft:coals', 'vinery:stackable_log'])
+	event.remove({id: 'minecraft:soul_campfire'})
+	event.shapeless('minecraft:soul_campfire', ['#minecraft:soul_fire_base_blocks', 'vinery:stackable_log'])
+	event.remove({id: 'infernalexp:crafting/crafting_shaped/glow_campfire'})
+	event.shapeless('infernalexp:glow_campfire', ['infernalexp:glowcoal', 'vinery:stackable_log'])
+	event.remove({id: 'endergetic:ender_campfire'})
+	event.shapeless('endergetic:ender_campfire', ['#endergetic:ender_fire_base_blocks', 'vinery:stackable_log'])
 	// #endregion
 
 	// -----------------------------------------------------
