@@ -14,6 +14,7 @@
             "type": "patchouli:crafting",
             "recipe": "create:crafting/kinetics/mechanical_press",
             "recipe2": "minecraft:kjs_iron_pickaxe"
-        }
+        },
+        "Of course, you could always $(l:scavenging)scavenge tools..."
     ]
 }
