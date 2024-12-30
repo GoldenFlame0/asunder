@@ -1567,3 +1567,24 @@ ServerEvents.entityLootTables(event => {
 		})
 	})
 })
+
+// Listen to player login event
+PlayerEvents.loggedIn(event => {
+	// Check if player doesn't have "starting_items" stage yet
+	if (!event.player.stages.has('starting_items'))
+	{
+		// Add the stage
+		event.player.stages.add('starting_items');
+		// Give some items to player
+		event.player.give(Item.of
+		(
+			'minecraft:wooden_sword', "{Damage:0,display:{Lore:['[\"\",{\"text\":\"It\\'ll do.\",\"italic\":false,\"color\":\"white\"}]'],Name:'[\"\",{\"text\":\"Wooden Cudgel\",\"italic\":false}]'}}"
+		));
+		event.player.give('valhelsia_structures:explorers_tent');
+		event.player.give('2x minecraft:bread');
+		event.player.give(Item.of
+			(
+				'patchouli:guide_book', '{"akashictome:data":{aether:{Count:1b,id:"aether:book_of_lore"},alexsmobs:{Count:1b,id:"alexsmobs:animal_dictionary"},apotheosis:{Count:1b,id:"patchouli:guide_book",tag:{"patchouli:book":"apotheosis:apoth_chronicle"}},botania:{Count:1b,id:"botania:lexicon"},solapplepie:{Count:1b,id:"solapplepie:food_book"},solcarrot:{Count:1b,id:"solcarrot:food_book"},thermal:{Count:1b,id:"patchouli:guide_book",tag:{"patchouli:book":"thermal:guidebook"}}},"akashictome:displayName":{text:\'{"translate":"A Pile of Notes"}\'},"akashictome:is_morphing":1b,display:{Name:\'{"translate":"akashictome.sudo_name","with":[{"color":"green","translate":"A Pile of Notes"}]}\'},"patchouli:book":"patchouli:asunder_starter"}'
+			));
+	}
+})

@@ -1,0 +1,14 @@
+{
+    "name": "The Akashic Tome",
+    "icon": "akashictome:tome",
+    "category": "patchouli:getting_started",
+    "pages": [
+        "This book that you're likely holding in your hands is no normal book. It is an Akashic Tome, full of all sorts of information.$(br2)To switch books, punch the air with the book in your hand, then right click to select a different book.",
+        {
+            "type": "patchouli:crafting",
+            "recipe": "akashictome:tome",
+            "text": "If you lose your tome, it's easy to make a new one... but you'll need to make all the other books from scratch."
+        },
+        "You can also add new guidebooks to the tome by putting it next to the tome in a crafting table. Try it now with your Iron's Guidebook."
+    ]
+}
