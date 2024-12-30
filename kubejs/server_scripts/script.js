@@ -1566,6 +1566,15 @@ ServerEvents.entityLootTables(event => {
 			pool.addItem('apotheosis:rare_material', 1, [0, 2])
 		})
 	})
+
+	event.modifyEntity('aether:valkyrie', table => {
+		table.addPool(pool => {
+			pool.rolls = [0, 1]
+			pool.addItem('refinedstorage:quartz_enriched_iron', 1, 1)
+			pool.addItem('thermal:steel_ingot', 1, 1)
+			pool.addItem('thermal:silver_nugget', 9, [1, 10])
+		})
+	})
 })
 
 // Listen to player login event
