@@ -1493,6 +1493,8 @@ ServerEvents.tags('item', event => {
 
 	event.get('gfz:upgraded_iron').add('createbigcannons:cast_iron_ingot')
 	event.get('gfz:upgraded_iron').add('thermal:steel_ingot')
+
+	event.get('dynamiclights:light_level/15').add('meadow:oil_lantern')
 })
 
 ServerEvents.entityLootTables(event => {
