@@ -1,3 +1,4 @@
+crash-reports/
 logs/
 mods/
 resourcepacks/
@@ -9,3 +10,5 @@ rhino.local.properties
 usercache.json
 usernamecache.json
 servers.dat
+
+patchouli_data.json
