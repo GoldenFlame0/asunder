@@ -41,7 +41,7 @@
 	#   TFC_CURRENT - e.g. 750
 	#   VANILLA_CURRENT - e.g. 15.0
 	#Allowed Values: TFC, VANILLA, TFC_CURRENT, VANILLA_CURRENT
-	healthDisplayStyle = "TFC"
+	healthDisplayStyle = "VANILLA"
 	#
 	# Food expiry tooltip display style. This affects what information is shown on the food item stack tooltips.
 	#   NONE - Shows nothing. Maximum mystery!
