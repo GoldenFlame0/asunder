@@ -821,13 +821,13 @@ familiarityDecayLimit = 0.3
 		enableVanillaWeatherEffects = false
 		#
 		# If true, vanilla will attempt to spawn skeleton 'trap' horses during thunderstorms.
-		enableVanillaSkeletonHorseSpawning = false
+		enableVanillaSkeletonHorseSpawning = true
 		#
 		# If true, enables the default vanilla behavior of mobs spawning with enchanted weapons sometimes.
-		enableVanillaMobsSpawningWithEnchantments = false
+		enableVanillaMobsSpawningWithEnchantments = true
 		#
 		# If true, enables the default behavior of mobs spawning with vanilla armor and weapons
-		enableVanillaMobsSpawningWithVanillaEquipment = false
+		enableVanillaMobsSpawningWithVanillaEquipment = true
 		#
 		# If true, golems can be built
 		enableVanillaGolems = false
@@ -836,10 +836,10 @@ familiarityDecayLimit = 0.3
 		enableVanillaMonsters = true
 		#
 		# If true, vanilla monsters will spawn on the surface instead of just underground. If false, vanilla monsters will not spawn on the surface.
-		enableVanillaMonstersOnSurface = false
+		enableVanillaMonstersOnSurface = true
 		#
 		# If true, chicken jockies can spawn
-		enableChickenJockies = false
+		enableChickenJockies = true
 		#
 		# If true, eggs can be thrown.
 		enableVanillaEggThrowing = false
