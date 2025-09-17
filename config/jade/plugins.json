@@ -54,6 +54,16 @@
   "jadeaddons": {
     "equipment_requirement": ""
   },
+  "jadeaddons.create": {
+    "filter": true,
+    "backtank_capacity": true,
+    "goggles.requires_goggles": true,
+    "goggles": false,
+    "blaze_burner": true,
+    "exact_block": true,
+    "goggles.detailed": false,
+    "placard": true
+  },
   "jade": {
     "coordinates.rel": false,
     "distance": false,
@@ -61,5 +71,15 @@
     "coordinates": false,
     "registry_name": "OFF",
     "mod_name": true
+  },
+  "alekiships": {
+    "furnace": true,
+    "jukebox": true,
+    "brewing_stand": true,
+    "block": true,
+    "note_block": true
+  },
+  "gravestone": {
+    "grave": true
   }
 }
