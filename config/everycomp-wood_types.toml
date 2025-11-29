@@ -147,6 +147,12 @@
 		[types.wood_type.meadow]
 			pine = true
 
+		[types.wood_type.create_dd]
+			rose = true
+			smoked = true
+			rubber = true
+			spirit = true
+
 [entries]
 
 	[entries.leaves_type]
